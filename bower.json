@@ -1,0 +1,17 @@
+{
+  "name": "adapt-nav-link",
+  "version": "2.0.0",
+  "framework": "2.0.4",
+  "homepage": "https://github.com/deltanet/adapt-nav-link",
+  "issues": "https://github.com/deltanet/adapt-nav-link/issues",
+  "displayName" : "Nav Link",
+  "extension" : "nav link",
+  "description": "An extension that allows a button to be added to an article, block or component which links to another location",
+  "main": "/js/adapt-nav-link.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-extension"
+  ],
+  "license": "GPL-3.0",
+  "targetAttribute": "_navLink"
+}

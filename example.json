@@ -1,0 +1,15 @@
+// Add to Article, Block or component JSON
+
+"_navLink": {
+    "_classes": "",
+    "_items": [
+        {
+            "text": "Menu",
+            "link": "co-10",
+            "_ariaLabels": {
+                "button": "Menu button. Select here to go back to the menu."
+            }
+        }
+    ]
+},
+
