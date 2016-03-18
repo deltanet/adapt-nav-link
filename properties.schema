@@ -9,19 +9,7 @@
       "required":true,
       "properties":{
         "config": {
-          "type":"object",
-          "properties":{
-            "_tutor": {
-              "type":"object",
-              "required":false,
-              "properties": {
-                "_isEnabled": {
-                  "type":"boolean",
-                  "required":true
-                }
-              }
-            }
-          }
+          "type":"object"
         },
         "course": {
           "type":"object"
@@ -30,13 +18,184 @@
           "type":"object"
         },
         "article": {
-          "type":"object"
+          "type":"object",
+          "properties":{
+            "_navLink": {
+              "type":"object",
+              "required":false,
+              "properties": {
+                "_classes": {
+                  "type": "string",
+                  "required": true,
+                  "title": "Classes",
+                  "inputType": "Text",
+                  "validators": []
+                },
+                "_items": {
+                  "type":"array",
+                  "required":true,
+                  "title": "Items",
+                  "items": {
+                    "type":"object",
+                    "required":true,
+                    "properties":{
+                      "text": {
+                        "type":"string",
+                        "required":true,
+                        "default": "",
+                        "title": "Nav Link Text",
+                        "inputType": "Text",
+                        "validators": ["required"]
+                      },
+                      "link": {
+                        "type": "string",
+                        "required": true,
+                        "title": "Link ID",
+                        "inputType": "Text",
+                        "validators": [],
+                        "help": "Paste the ID for the article that you want to link to"
+                      },
+                      "_ariaLabels": {
+                        "type":"object",
+                        "title": "Button Graphic",
+                        "required":false,
+                        "properties":{
+                          "button": {
+                            "type":"string",
+                            "required":false,
+                            "default": "",
+                            "title": "Button Aria Label",
+                            "inputType": "Text",
+                            "validators": []
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         },
         "block": {
-          "type":"object"
+          "type":"object",
+          "properties":{
+            "_navLink": {
+              "type":"object",
+              "required":false,
+              "properties": {
+                "_classes": {
+                  "type": "string",
+                  "required": true,
+                  "title": "Classes",
+                  "inputType": "Text",
+                  "validators": []
+                },
+                "_items": {
+                  "type":"array",
+                  "required":true,
+                  "title": "Items",
+                  "items": {
+                    "type":"object",
+                    "required":true,
+                    "properties":{
+                      "text": {
+                        "type":"string",
+                        "required":true,
+                        "default": "",
+                        "title": "Nav Link Text",
+                        "inputType": "Text",
+                        "validators": ["required"]
+                      },
+                      "link": {
+                        "type": "string",
+                        "required": true,
+                        "title": "Link ID",
+                        "inputType": "Text",
+                        "validators": [],
+                        "help": "Paste the ID for the article that you want to link to"
+                      },
+                      "_ariaLabels": {
+                        "type":"object",
+                        "title": "Button Graphic",
+                        "required":false,
+                        "properties":{
+                          "button": {
+                            "type":"string",
+                            "required":false,
+                            "default": "",
+                            "title": "Button Aria Label",
+                            "inputType": "Text",
+                            "validators": []
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         },
         "component": {
-          "type":"object"
+          "type":"object",
+          "properties":{
+            "_navLink": {
+              "type":"object",
+              "required":false,
+              "properties": {
+                "_classes": {
+                  "type": "string",
+                  "required": true,
+                  "title": "Classes",
+                  "inputType": "Text",
+                  "validators": []
+                },
+                "_items": {
+                  "type":"array",
+                  "required":true,
+                  "title": "Items",
+                  "items": {
+                    "type":"object",
+                    "required":true,
+                    "properties":{
+                      "text": {
+                        "type":"string",
+                        "required":true,
+                        "default": "",
+                        "title": "Nav Link Text",
+                        "inputType": "Text",
+                        "validators": ["required"]
+                      },
+                      "link": {
+                        "type": "string",
+                        "required": true,
+                        "title": "Link ID",
+                        "inputType": "Text",
+                        "validators": [],
+                        "help": "Paste the ID for the article that you want to link to"
+                      },
+                      "_ariaLabels": {
+                        "type":"object",
+                        "title": "Button Graphic",
+                        "required":false,
+                        "properties":{
+                          "button": {
+                            "type":"string",
+                            "required":false,
+                            "default": "",
+                            "title": "Button Aria Label",
+                            "inputType": "Text",
+                            "validators": []
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
