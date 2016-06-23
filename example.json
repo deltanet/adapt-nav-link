@@ -4,6 +4,7 @@
     "_classes": "",
     "_items": [
         {
+            "_hideAfterClick": false,
             "text": "Menu",
             "link": "co-10",
             "_ariaLabels": {

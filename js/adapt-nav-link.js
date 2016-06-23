@@ -33,7 +33,13 @@ define(function(require) {
             var $item = $(event.currentTarget);
             var currentItem = this.getCurrentItem($item.index());
 
-            Adapt.navigateToElement('.' + currentItem.link);
+            if (currentItem._hideAfterClick) {
+                this.$(".nav-link-button").css({
+                    display: "none"
+                });
+            }
+
+            Adapt.navigateToElement('.' + currentItem.link, {duration: 500});
         },
 
         getCurrentItem: function(index) {
