@@ -39,6 +39,14 @@
                     "type":"object",
                     "required":true,
                     "properties":{
+                      "_hideAfterClick": {
+                        "type":"boolean",
+                        "required":true,
+                        "default": false,
+                        "title": "Hide button after clicking",
+                        "inputType": { "type": "Boolean", "options": [false, true]},
+                        "validators": []
+                      },
                       "text": {
                         "type":"string",
                         "required":true,
@@ -99,6 +107,14 @@
                     "type":"object",
                     "required":true,
                     "properties":{
+                      "_hideAfterClick": {
+                        "type":"boolean",
+                        "required":true,
+                        "default": false,
+                        "title": "Hide button after clicking",
+                        "inputType": { "type": "Boolean", "options": [false, true]},
+                        "validators": []
+                      },
                       "text": {
                         "type":"string",
                         "required":true,
@@ -159,6 +175,14 @@
                     "type":"object",
                     "required":true,
                     "properties":{
+                      "_hideAfterClick": {
+                        "type":"boolean",
+                        "required":true,
+                        "default": false,
+                        "title": "Hide button after clicking",
+                        "inputType": { "type": "Boolean", "options": [false, true]},
+                        "validators": []
+                      },
                       "text": {
                         "type":"string",
                         "required":true,
