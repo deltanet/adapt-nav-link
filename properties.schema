@@ -42,6 +42,7 @@
                       "_hideAfterClick": {
                         "type":"boolean",
                         "required":true,
+                        "default": false,
                         "title": "Hide button after clicking",
                         "inputType": { "type": "Boolean", "options": [false, true]},
                         "validators": []
@@ -109,6 +110,7 @@
                       "_hideAfterClick": {
                         "type":"boolean",
                         "required":true,
+                        "default": false,
                         "title": "Hide button after clicking",
                         "inputType": { "type": "Boolean", "options": [false, true]},
                         "validators": []
@@ -176,6 +178,7 @@
                       "_hideAfterClick": {
                         "type":"boolean",
                         "required":true,
+                        "default": false,
                         "title": "Hide button after clicking",
                         "inputType": { "type": "Boolean", "options": [false, true]},
                         "validators": []
