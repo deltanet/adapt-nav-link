@@ -23,7 +23,17 @@
             "_navLink": {
               "type":"object",
               "required":false,
+              "legend": "Nav Link",
               "properties": {
+                "_isEnabled": {
+                  "type":"boolean",
+                  "required":true,
+                  "default": false,
+                  "title": "Enabled",
+                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "validators": [],
+                  "help": "Turns Nav Link on and off. Acceptable values are true and false."
+                },
                 "_classes": {
                   "type": "string",
                   "required": true,
@@ -93,7 +103,17 @@
             "_navLink": {
               "type":"object",
               "required":false,
+              "legend": "Nav Link",
               "properties": {
+                "_isEnabled": {
+                  "type":"boolean",
+                  "required":true,
+                  "default": false,
+                  "title": "Enabled",
+                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "validators": [],
+                  "help": "Turns Nav Link on and off. Acceptable values are true and false."
+                },
                 "_classes": {
                   "type": "string",
                   "required": true,
@@ -163,7 +183,17 @@
             "_navLink": {
               "type":"object",
               "required":false,
+              "legend": "Nav Link",
               "properties": {
+                "_isEnabled": {
+                  "type":"boolean",
+                  "required":true,
+                  "default": false,
+                  "title": "Enabled",
+                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "validators": [],
+                  "help": "Turns Nav Link on and off. Acceptable values are true and false."
+                },
                 "_classes": {
                   "type": "string",
                   "required": true,

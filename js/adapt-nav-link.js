@@ -26,7 +26,7 @@ define(function(require) {
             $(this.el).html(template(data)).appendTo('.' + this.model.get("_id") + '>.' +this.model.get("_type")+'-inner');
 
         },
-        
+
         initLink: function(event) {
 
             event.preventDefault();
@@ -47,9 +47,9 @@ define(function(require) {
         }
 
     });
-    
+
     Adapt.on('articleView:postRender blockView:postRender componentView:postRender', function(view) {
-        if (view.model.get("_navLink")) {
+        if (view.model.get("_navLink") && view.model.get("_navLink")._isEnabled) {
           new NavLink({model:view.model});
         }
     });
