@@ -7,10 +7,8 @@
     {
       "_hideAfterClick": false,
       "text": "Menu",
-      "link": "co-10",
-      "_ariaLabels": {
-        "button": "Menu button. Select here to go back to the menu."
-      }
+      "_link": "co-10",
+      "_ariaLabel": "Menu button. Select here to go back to the menu."
     }
   ]
 },

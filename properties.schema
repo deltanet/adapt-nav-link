@@ -29,10 +29,10 @@
                   "type":"boolean",
                   "required":true,
                   "default": false,
-                  "title": "Enabled",
+                  "title": "Is Enabled",
                   "inputType": { "type": "Boolean", "options": [false, true]},
                   "validators": [],
-                  "help": "Turns Nav Link on and off. Acceptable values are true and false."
+                  "help": "Turns Nav Link on and off."
                 },
                 "_classes": {
                   "type": "string",
@@ -61,7 +61,7 @@
                         "type":"string",
                         "required":true,
                         "default": "",
-                        "title": "Nav Link Text",
+                        "title": "Button Text",
                         "inputType": "Text",
                         "validators": ["required"],
                         "translatable": true
@@ -74,21 +74,14 @@
                         "validators": [],
                         "help": "Paste the ID for the article that you want to link to"
                       },
-                      "_ariaLabels": {
-                        "type":"object",
-                        "title": "Button Graphic",
+                      "_ariaLabel": {
+                        "type":"string",
                         "required":false,
-                        "properties":{
-                          "button": {
-                            "type":"string",
-                            "required":false,
-                            "default": "",
-                            "title": "Button Aria Label",
-                            "inputType": "Text",
-                            "validators": [],
-                            "translatable": true
-                          }
-                        }
+                        "default": "",
+                        "title": "Aria Label",
+                        "inputType": "Text",
+                        "validators": [],
+                        "translatable": true
                       }
                     }
                   }
@@ -146,7 +139,7 @@
                         "validators": ["required"],
                         "translatable": true
                       },
-                      "link": {
+                      "_link": {
                         "type": "string",
                         "required": true,
                         "title": "Link ID",
@@ -154,21 +147,14 @@
                         "validators": [],
                         "help": "Paste the ID for the article that you want to link to"
                       },
-                      "_ariaLabels": {
-                        "type":"object",
-                        "title": "Button Graphic",
+                      "_ariaLabel": {
+                        "type":"string",
                         "required":false,
-                        "properties":{
-                          "button": {
-                            "type":"string",
-                            "required":false,
-                            "default": "",
-                            "title": "Button Aria Label",
-                            "inputType": "Text",
-                            "validators": [],
-                            "translatable": true
-                          }
-                        }
+                        "default": "",
+                        "title": "Aria Label",
+                        "inputType": "Text",
+                        "validators": [],
+                        "translatable": true
                       }
                     }
                   }
@@ -226,7 +212,7 @@
                         "validators": ["required"],
                         "translatable": true
                       },
-                      "link": {
+                      "_link": {
                         "type": "string",
                         "required": true,
                         "title": "Link ID",
@@ -234,21 +220,14 @@
                         "validators": [],
                         "help": "Paste the ID for the article that you want to link to"
                       },
-                      "_ariaLabels": {
-                        "type":"object",
-                        "title": "Button Graphic",
+                      "_ariaLabel": {
+                        "type":"string",
                         "required":false,
-                        "properties":{
-                          "button": {
-                            "type":"string",
-                            "required":false,
-                            "default": "",
-                            "title": "Button Aria Label",
-                            "inputType": "Text",
-                            "validators": [],
-                            "translatable": true
-                          }
-                        }
+                        "default": "",
+                        "title": "Aria Label",
+                        "inputType": "Text",
+                        "validators": [],
+                        "translatable": true
                       }
                     }
                   }

@@ -39,7 +39,7 @@ define(function(require) {
                 });
             }
 
-            Adapt.navigateToElement('.' + currentItem.link, {duration: 500});
+            Adapt.navigateToElement('.' + currentItem._link, {duration: 500});
         },
 
         getCurrentItem: function(index) {
