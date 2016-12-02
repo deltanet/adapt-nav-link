@@ -72,7 +72,7 @@
                         "title": "Link ID",
                         "inputType": "Text",
                         "validators": [],
-                        "help": "Paste the ID for the article that you want to link to"
+                        "help": "Paste the ID of the element you want to link to"
                       },
                       "_ariaLabel": {
                         "type":"string",
@@ -102,10 +102,10 @@
                   "type":"boolean",
                   "required":true,
                   "default": false,
-                  "title": "Enabled",
+                  "title": "Is Enabled",
                   "inputType": { "type": "Boolean", "options": [false, true]},
                   "validators": [],
-                  "help": "Turns Nav Link on and off. Acceptable values are true and false."
+                  "help": "Turns Nav Link on and off."
                 },
                 "_classes": {
                   "type": "string",
@@ -139,13 +139,13 @@
                         "validators": ["required"],
                         "translatable": true
                       },
-                      "_link": {
+                      "link": {
                         "type": "string",
                         "required": true,
                         "title": "Link ID",
                         "inputType": "Text",
                         "validators": [],
-                        "help": "Paste the ID for the article that you want to link to"
+                        "help": "Paste the ID of the element you want to link to"
                       },
                       "_ariaLabel": {
                         "type":"string",
@@ -175,10 +175,10 @@
                   "type":"boolean",
                   "required":true,
                   "default": false,
-                  "title": "Enabled",
+                  "title": "Is Enabled",
                   "inputType": { "type": "Boolean", "options": [false, true]},
                   "validators": [],
-                  "help": "Turns Nav Link on and off. Acceptable values are true and false."
+                  "help": "Turns Nav Link on and off."
                 },
                 "_classes": {
                   "type": "string",
@@ -212,13 +212,13 @@
                         "validators": ["required"],
                         "translatable": true
                       },
-                      "_link": {
+                      "link": {
                         "type": "string",
                         "required": true,
                         "title": "Link ID",
                         "inputType": "Text",
                         "validators": [],
-                        "help": "Paste the ID for the article that you want to link to"
+                        "help": "Paste the ID of the element you want to link to"
                       },
                       "_ariaLabel": {
                         "type":"string",
