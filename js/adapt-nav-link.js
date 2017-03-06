@@ -68,6 +68,7 @@ define(function(require) {
             event.preventDefault();
             var $item = $(event.currentTarget);
             var currentItem = this.getCurrentItem($item.index());
+            var link = currentItem._link;
             var customLink = currentItem._custom;
             if (currentItem._hideAfterClick) {
                 this.$(".nav-link-button").css({
@@ -81,6 +82,7 @@ define(function(require) {
             } else if(link === "Previous page") {
               this.navigateToElement(this.subPageId[this.subObjectNum - 1]);
             } else if(link === "Next article" || link === "Next block" || link === "Next component") {
+              this.navigateToNextElement();
             } else if(link === "Custom") {
               this.navigateToElement(customLink);
             }
@@ -94,6 +96,7 @@ define(function(require) {
           Adapt.navigateToElement('.' + link, {duration: 500});
         },
 
+        navigateToNextElement: function() {
           // Get siblings and create array
           this.siblings = this.model.getSiblings(true);
           this.siblingsId = new Array();
