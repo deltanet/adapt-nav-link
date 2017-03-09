@@ -75,15 +75,27 @@ define(function(require) {
                     display: "none"
                 });
             }
-            if(link === "Parent page") {
+            switch (link) {
+            case "Parent page":
               Adapt.trigger("navigation:parentButton");
-            } else if(link === "Next page") {
+              break;
+            case "Next page":
               this.navigateToElement(this.subPageId[this.subObjectNum + 1]);
-            } else if(link === "Previous page") {
+              break;
+            case "Previous page":
               this.navigateToElement(this.subPageId[this.subObjectNum - 1]);
-            } else if(link === "Next article" || link === "Next block" || link === "Next component") {
+              break;
+            case "Next article":
               this.navigateToNextElement();
-            } else if(link === "Custom") {
+              break;
+            case "Next block":
+              this.navigateToNextElement();
+              break;
+            case "Next component":
+              this.navigateToNextElement();
+              break;
+            default:
+              // If "Custom"
               this.navigateToElement(customLink);
             }
         },
