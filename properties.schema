@@ -71,7 +71,7 @@
                         "required": true,
                         "default": "Parent page",
                         "title": "Link Destination",
-                        "inputType": {"type": "Select", "options": ["Parent page", "Next page", "Previous page", "Next article"]},
+                        "inputType": {"type": "Select", "options": ["Parent page", "Next page", "Previous page", "Next article", "Custom"]},
                         "validators": [],
                         "help": "Set where the button should link to."
                       },
@@ -82,7 +82,7 @@
                         "title": "Custom Link ID",
                         "inputType": "Text",
                         "validators": [],
-                        "help": "Paste the ID of the element you want to link to."
+                        "help": "If 'Custom' is selected above, paste the ID of the element you want to link to."
                       },
                       "_ariaLabel": {
                         "type":"string",
@@ -154,7 +154,7 @@
                         "required": true,
                         "default": "Parent page",
                         "title": "Link Destination",
-                        "inputType": {"type": "Select", "options": ["Parent page", "Next page", "Previous page", "Next block"]},
+                        "inputType": {"type": "Select", "options": ["Parent page", "Next page", "Previous page", "Next block", "Custom"]},
                         "validators": [],
                         "help": "Set where the button should link to."
                       },
@@ -165,7 +165,7 @@
                         "title": "Custom Link ID",
                         "inputType": "Text",
                         "validators": [],
-                        "help": "Paste the ID of the element you want to link to."
+                        "help": "If 'Custom' is selected above, paste the ID of the element you want to link to."
                       },
                       "_ariaLabel": {
                         "type":"string",
@@ -237,7 +237,7 @@
                         "required": true,
                         "default": "Parent page",
                         "title": "Link Destination",
-                        "inputType": {"type": "Select", "options": ["Parent page", "Next page", "Previous page", "Next component"]},
+                        "inputType": {"type": "Select", "options": ["Parent page", "Next page", "Previous page", "Next component", "Custom"]},
                         "validators": [],
                         "help": "Set where the button should link to."
                       },
@@ -248,7 +248,7 @@
                         "title": "Custom Link ID",
                         "inputType": "Text",
                         "validators": [],
-                        "help": "Paste the ID of the element you want to link to."
+                        "help": "If 'Custom' is selected above, paste the ID of the element you want to link to."
                       },
                       "_ariaLabel": {
                         "type":"string",
