@@ -69,35 +69,38 @@ define(function(require) {
             var $item = $(event.currentTarget);
             var currentItem = this.getCurrentItem($item.index());
             var link = currentItem._link;
-            var customLink = currentItem._custom;
+            var customLink = currentItem.link;
             if (currentItem._hideAfterClick) {
                 this.$(".nav-link-button").css({
                     display: "none"
                 });
             }
-            switch (link) {
-            case "Parent page":
-              Adapt.trigger("navigation:parentButton");
-              break;
-            case "Next page":
-              this.navigateToElement(this.subPageId[this.subObjectNum + 1]);
-              break;
-            case "Previous page":
-              this.navigateToElement(this.subPageId[this.subObjectNum - 1]);
-              break;
-            case "Next article":
-              this.navigateToNextElement();
-              break;
-            case "Next block":
-              this.navigateToNextElement();
-              break;
-            case "Next component":
-              this.navigateToNextElement();
-              break;
-            default:
-              // If "Custom"
+            // Legacy fallback
+            // Check for 'customLink' attribute first so it captures the old 'link' attribute
+            if(!customLink=="") {
               this.navigateToElement(customLink);
+            } else {
+              switch (link) {
+              case "Parent page":
+                Adapt.trigger("navigation:parentButton");
+                break;
+              case "Next page":
+                this.navigateToElement(this.subPageId[this.subObjectNum + 1]);
+                break;
+              case "Previous page":
+                this.navigateToElement(this.subPageId[this.subObjectNum - 1]);
+                break;
+              case "Next article":
+                this.navigateToNextElement();
+                break;
+              case "Next block":
+                this.navigateToNextElement();
+                break;
+              case "Next component":
+                this.navigateToNextElement();
+                break;
             }
+          }
         },
 
         getCurrentItem: function(index) {
