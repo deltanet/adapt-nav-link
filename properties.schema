@@ -75,7 +75,7 @@
                         "validators": [],
                         "help": "Set where the button should link to."
                       },
-                      "_custom": {
+                      "link": {
                         "type": "string",
                         "required": false,
                         "default": "",
@@ -158,7 +158,7 @@
                         "validators": [],
                         "help": "Set where the button should link to."
                       },
-                      "_custom": {
+                      "link": {
                         "type": "string",
                         "required": false,
                         "default": "",
@@ -241,7 +241,7 @@
                         "validators": [],
                         "help": "Set where the button should link to."
                       },
-                      "_custom": {
+                      "link": {
                         "type": "string",
                         "required": false,
                         "default": "",
