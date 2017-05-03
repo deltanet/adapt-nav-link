@@ -23,7 +23,15 @@ define(function(require) {
             var data = this.model.toJSON();
             var template = Handlebars.templates["nav-link"];
 
-            $(this.el).html(template(data)).appendTo('.' + this.model.get("_id") + '>.' +this.model.get("_type")+'-inner');
+            // Check if 'extensions' div is already in the DOM
+            if (!$('.' + this.model.get('_id')).find('.extensions').length) {
+              // Create containing div if not already there
+              var newDiv = document.createElement("div");
+              newDiv.setAttribute('class', 'extensions');
+              $(newDiv).appendTo('.' + this.model.get('_id') + '>.' +this.model.get("_type")+'-inner');
+            }
+
+            $(this.el).html(template(data)).prependTo('.extensions');
 
             this.setupNavLink();
         },
