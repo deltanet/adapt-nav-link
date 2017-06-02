@@ -31,7 +31,7 @@ define(function(require) {
               $(newDiv).appendTo('.' + this.model.get('_id') + '>.' +this.model.get("_type")+'-inner');
             }
 
-            $(this.el).html(template(data)).prependTo('.extensions');
+            $(this.el).html(template(data)).prependTo('.' + this.model.get('_id') + '>.' +this.model.get("_type")+'-inner' + ' > .extensions');
 
             this.setupNavLink();
         },
