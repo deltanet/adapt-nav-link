@@ -58,7 +58,7 @@ define(function(require) {
           }
 
           // Get all pages at the current level - i.e. course level or pages in a sub menu
-          this.pageObjects = new Backbone.Collection(Adapt.contentObjects.where({_parentId:this.parentId[this.objectNum]}));
+          this.pageObjects = new Backbone.Collection(Adapt.contentObjects.where({_parentId:this.parentId[this.objectNum] , _isAvailable: true}));
           this.subPageId = new Array();
           this.subParentId = new Array();
           for (var i = 0, l = this.pageObjects.length; i < l; i++) {
