@@ -30,9 +30,9 @@
                   "required":true,
                   "default": false,
                   "title": "Is Enabled",
-                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "inputType": "Checkbox",
                   "validators": [],
-                  "help": "Turns Nav Link on and off."
+                  "help": "Controls whether the Nav Link extension is enabled or disabled."
                 },
                 "_classes": {
                   "type": "string",
@@ -54,7 +54,7 @@
                         "required":true,
                         "default": false,
                         "title": "Hide button after clicking",
-                        "inputType": { "type": "Boolean", "options": [false, true]},
+                        "inputType": "Checkbox",
                         "validators": []
                       },
                       "text": {
@@ -113,9 +113,9 @@
                   "required":true,
                   "default": false,
                   "title": "Is Enabled",
-                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "inputType": "Checkbox",
                   "validators": [],
-                  "help": "Turns Nav Link on and off."
+                  "help": "Controls whether the Nav Link extension is enabled or disabled."
                 },
                 "_classes": {
                   "type": "string",
@@ -137,7 +137,7 @@
                         "required":true,
                         "default": false,
                         "title": "Hide button after clicking",
-                        "inputType": { "type": "Boolean", "options": [false, true]},
+                        "inputType": "Checkbox",
                         "validators": []
                       },
                       "text": {
@@ -196,9 +196,9 @@
                   "required":true,
                   "default": false,
                   "title": "Is Enabled",
-                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "inputType": "Checkbox",
                   "validators": [],
-                  "help": "Turns Nav Link on and off."
+                  "help": "Controls whether the Nav Link extension is enabled or disabled."
                 },
                 "_classes": {
                   "type": "string",
@@ -220,7 +220,7 @@
                         "required":true,
                         "default": false,
                         "title": "Hide button after clicking",
-                        "inputType": { "type": "Boolean", "options": [false, true]},
+                        "inputType": "Checkbox",
                         "validators": []
                       },
                       "text": {
