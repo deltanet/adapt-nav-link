@@ -43,7 +43,7 @@ Several elements of **Nav link** have been assigned a label using the [aria-labe
 No known limitations.
 
 ----------------------------
-**Version number:**  2.1.5     
+**Version number:**  2.1.6     
 **Framework versions supported:**  ^2.0.4    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-nav-link/graphs/contributors)     
 **Accessibility support:** Yes  
