@@ -22,12 +22,12 @@
           "properties":{
             "_navLink": {
               "type":"object",
-              "required":false,
+              "required": false,
               "legend": "Nav Link",
               "properties": {
                 "_isEnabled": {
                   "type":"boolean",
-                  "required":true,
+                  "required": true,
                   "default": false,
                   "title": "Is Enabled",
                   "inputType": "Checkbox",
@@ -43,15 +43,15 @@
                 },
                 "_items": {
                   "type":"array",
-                  "required":true,
+                  "required": true,
                   "title": "Items",
                   "items": {
                     "type":"object",
-                    "required":true,
+                    "required": true,
                     "properties":{
                       "_hideAfterClick": {
                         "type":"boolean",
-                        "required":true,
+                        "required": true,
                         "default": false,
                         "title": "Hide button after clicking",
                         "inputType": "Checkbox",
@@ -59,7 +59,7 @@
                       },
                       "text": {
                         "type":"string",
-                        "required":true,
+                        "required": true,
                         "default": "",
                         "title": "Button Text",
                         "inputType": "Text",
@@ -86,7 +86,7 @@
                       },
                       "_ariaLabel": {
                         "type":"string",
-                        "required":false,
+                        "required": false,
                         "default": "",
                         "title": "Aria Label",
                         "inputType": "Text",
@@ -105,12 +105,12 @@
           "properties":{
             "_navLink": {
               "type":"object",
-              "required":false,
+              "required": false,
               "legend": "Nav Link",
               "properties": {
                 "_isEnabled": {
                   "type":"boolean",
-                  "required":true,
+                  "required": true,
                   "default": false,
                   "title": "Is Enabled",
                   "inputType": "Checkbox",
@@ -126,7 +126,7 @@
                 },
                 "_items": {
                   "type":"array",
-                  "required":true,
+                  "required": true,
                   "title": "Items",
                   "items": {
                     "type":"object",
@@ -134,7 +134,7 @@
                     "properties":{
                       "_hideAfterClick": {
                         "type":"boolean",
-                        "required":true,
+                        "required": true,
                         "default": false,
                         "title": "Hide button after clicking",
                         "inputType": "Checkbox",
@@ -142,7 +142,7 @@
                       },
                       "text": {
                         "type":"string",
-                        "required":true,
+                        "required": true,
                         "default": "",
                         "title": "Nav Link Text",
                         "inputType": "Text",
@@ -169,7 +169,7 @@
                       },
                       "_ariaLabel": {
                         "type":"string",
-                        "required":false,
+                        "required": false,
                         "default": "",
                         "title": "Aria Label",
                         "inputType": "Text",
@@ -188,12 +188,12 @@
           "properties":{
             "_navLink": {
               "type":"object",
-              "required":false,
+              "required": false,
               "legend": "Nav Link",
               "properties": {
                 "_isEnabled": {
                   "type":"boolean",
-                  "required":true,
+                  "required": true,
                   "default": false,
                   "title": "Is Enabled",
                   "inputType": "Checkbox",
@@ -209,7 +209,7 @@
                 },
                 "_items": {
                   "type":"array",
-                  "required":true,
+                  "required": true,
                   "title": "Items",
                   "items": {
                     "type":"object",
@@ -217,7 +217,7 @@
                     "properties":{
                       "_hideAfterClick": {
                         "type":"boolean",
-                        "required":true,
+                        "required": true,
                         "default": false,
                         "title": "Hide button after clicking",
                         "inputType": "Checkbox",
@@ -225,7 +225,7 @@
                       },
                       "text": {
                         "type":"string",
-                        "required":true,
+                        "required": true,
                         "default": "",
                         "title": "Nav Link Text",
                         "inputType": "Text",
@@ -252,7 +252,7 @@
                       },
                       "_ariaLabel": {
                         "type":"string",
-                        "required":false,
+                        "required": false,
                         "default": "",
                         "title": "Aria Label",
                         "inputType": "Text",

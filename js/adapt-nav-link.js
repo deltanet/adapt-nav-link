@@ -70,6 +70,7 @@ define(function(require) {
             }
           }
 
+          this.setVisitedStates();
         },
 
         initLink: function(event) {
@@ -78,11 +79,20 @@ define(function(require) {
             var currentItem = this.getCurrentItem($item.index());
             var link = currentItem._link;
             var customLink = currentItem.link;
-            if (currentItem._hideAfterClick) {
-                this.$(".nav-link-button").css({
-                    display: "none"
-                });
+
+            // Set visited state
+            if(!currentItem.visited) {
+              $item.addClass('visited');
+              currentItem.visited = true;
             }
+
+            // Check for hide after click feature
+            if (currentItem._hideAfterClick) {
+              $item.css({
+                display: "none"
+              });
+            }
+
             // Legacy fallback
             // Check for 'customLink' attribute first so it captures the old 'link' attribute
             if(!customLink=="") {
@@ -131,6 +141,19 @@ define(function(require) {
             }
           }
           this.navigateToElement(this.siblingsId[this.elementNum + 1]);
+        },
+
+        setVisitedStates: function() {
+          var items = this.$(".nav-link-inner").children();
+
+          for (var i = 0, l = items.length; i < l; i++) {
+            var item = this.getCurrentItem(i);
+            var $item = this.$(items[i]);
+
+            if(item.visited){
+              $item.addClass('visited');
+            }
+          }
         }
 
     });
