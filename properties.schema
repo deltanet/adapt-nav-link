@@ -49,6 +49,24 @@
                     "type":"object",
                     "required": true,
                     "properties":{
+                      "_requireCourseCompleted": {
+                        "type":"boolean",
+                        "required": false,
+                        "default": false,
+                        "title":"Course completion required",
+                        "inputType": "Checkbox",
+                        "validators": [],
+                        "help": "If enabled, the button will show when the user completes all the components in the course."
+                      },
+                      "_requireAssessmentPassed": {
+                        "type":"boolean",
+                        "required": false,
+                        "default": false,
+                        "title":"Assessment pass required",
+                        "inputType": "Checkbox",
+                        "validators": [],
+                        "help": "If enabled, the button will show when the user has passsed the course assessment."
+                      },
                       "_hideAfterClick": {
                         "type":"boolean",
                         "required": true,
@@ -132,6 +150,24 @@
                     "type":"object",
                     "required":true,
                     "properties":{
+                      "_requireCourseCompleted": {
+                        "type":"boolean",
+                        "required": false,
+                        "default": false,
+                        "title":"Course completion required",
+                        "inputType": "Checkbox",
+                        "validators": [],
+                        "help": "If enabled, the button will show when the user completes all the components in the course."
+                      },
+                      "_requireAssessmentPassed": {
+                        "type":"boolean",
+                        "required": false,
+                        "default": false,
+                        "title":"Assessment pass required",
+                        "inputType": "Checkbox",
+                        "validators": [],
+                        "help": "If enabled, the button will show when the user has passsed the course assessment."
+                      },
                       "_hideAfterClick": {
                         "type":"boolean",
                         "required": true,
@@ -215,6 +251,24 @@
                     "type":"object",
                     "required":true,
                     "properties":{
+                      "_requireCourseCompleted": {
+                        "type":"boolean",
+                        "required": false,
+                        "default": false,
+                        "title":"Course completion required",
+                        "inputType": "Checkbox",
+                        "validators": [],
+                        "help": "If enabled, the button will show when the user completes all the components in the course."
+                      },
+                      "_requireAssessmentPassed": {
+                        "type":"boolean",
+                        "required": false,
+                        "default": false,
+                        "title":"Assessment pass required",
+                        "inputType": "Checkbox",
+                        "validators": [],
+                        "help": "If enabled, the button will show when the user has passsed the course assessment."
+                      },
                       "_hideAfterClick": {
                         "type":"boolean",
                         "required": true,

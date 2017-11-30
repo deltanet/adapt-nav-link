@@ -24,9 +24,13 @@ The Nav link attribute group contains values for **_isEnabled**, **_classes**, a
 
 >**_classes** (string):  Defines a css class that is included in the theme.
 
->**_items** (array): This `_items` attributes group stores the properties for a button. It contains values for **_hideAfterClick**, **text**, **_link**, **link**, and **_ariaLabel**.  
+>**_items** (array): This `_items` attributes group stores the properties for a button. It contains values for **_requireCourseCompleted**, **_requireAssessmentPassed**, **_hideAfterClick**, **text**, **_link**, **link**, and **_ariaLabel**.  
 
->>**_hideAfterClick** (boolean):  If set to `true`, the button will be hidden when the user selects it.  
+>>**_requireCourseCompleted** (boolean):  If enabled, the button will be hidden until the course is completed.  
+
+>>**_requireAssessmentPassed** (boolean):  If enabled, the button will be hidden until the assessment is passed.  
+
+>>**_hideAfterClick** (boolean):  If enabled, the button will be hidden when the user selects it.  
 
 >>**_link** (string):  Defines the destination of the button link. Options are `"Parent page"`, `"Next page"`, `"Previous page"`, `"Next article"`, `"Next block"`, `"Next component"`, and `"Custom"`. The default is `"Parent page"`.
 
@@ -43,7 +47,7 @@ Several elements of **Nav link** have been assigned a label using the [aria-labe
 No known limitations.
 
 ----------------------------
-**Version number:**  2.1.6     
+**Version number:**  2.2.0     
 **Framework versions supported:**  ^2.0.4    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-nav-link/graphs/contributors)     
 **Accessibility support:** Yes  

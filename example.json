@@ -5,6 +5,8 @@
   "_classes": "",
   "_items": [
     {
+      "_requireCourseCompleted": false,
+      "_requireAssessmentPassed": false,
       "_hideAfterClick": false,
       "text": "Menu",
       "_link": "Parent page", // "Parent page" "Next page" "Previous page" "Next article" "Next block" "Next component" "Custom"

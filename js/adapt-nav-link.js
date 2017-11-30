@@ -8,15 +8,15 @@ define(function(require) {
 
         initialize: function () {
             this.listenTo(Adapt, 'remove', this.remove);
-            this.preRender();
+            // Listen for course completion
+            this.listenTo(Adapt.course, 'change:_isComplete', this.checkCompletion);
+            this.listenTo(Adapt.course, 'change:_isAssessmentPassed', this.checkCompletion);
             this.render();
         },
 
         events: {
             "click .nav-link-button":"initLink"
         },
-
-        preRender: function() {},
 
         render: function () {
 
@@ -34,6 +34,14 @@ define(function(require) {
             $(this.el).html(template(data)).prependTo('.' + this.model.get('_id') + '>.' +this.model.get("_type")+'-inner' + ' > .extensions');
 
             this.setupNavLink();
+
+            _.defer(_.bind(function() {
+                this.postRender();
+            }, this));
+        },
+
+        postRender: function() {
+          this.checkCompletion();
         },
 
         setupNavLink: function() {
@@ -154,6 +162,32 @@ define(function(require) {
               $item.addClass('visited');
             }
           }
+        },
+
+        checkCompletion: function() {
+          var items = this.$(".nav-link-inner").children();
+
+          for (var i = 0, l = items.length; i < l; i++) {
+            var item = this.getCurrentItem(i);
+            var $item = this.$(items[i]);
+
+            $item.hide();
+            if (this.checkTrackingCriteriaMet(item)) {
+              $item.show();
+            }
+          }
+        },
+
+        checkTrackingCriteriaMet: function(item) {
+          var criteriaMet = true;
+          if (item._requireCourseCompleted && item._requireAssessmentPassed) { // user must complete the content AND pass the assessment
+            criteriaMet = (Adapt.course.get('_isComplete') && Adapt.course.get('_isAssessmentPassed'));
+          } else if (item._requireCourseCompleted) { // user only needs to complete the content
+            criteriaMet = Adapt.course.get('_isComplete');
+          } else if (item._requireAssessmentPassed) { // user only needs to pass the assessment
+            criteriaMet = Adapt.course.get('_isAssessmentPassed');
+          }
+          return criteriaMet;
         }
 
     });
