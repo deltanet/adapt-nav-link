@@ -5,6 +5,7 @@
   "_classes": "",
   "_items": [
     {
+      "_requireElementCompleted": false,
       "_requireCourseCompleted": false,
       "_requireAssessmentPassed": false,
       "_hideAfterClick": false,

@@ -186,6 +186,8 @@ define(function(require) {
             criteriaMet = Adapt.course.get('_isComplete');
           } else if (item._requireAssessmentPassed) { // user only needs to pass the assessment
             criteriaMet = Adapt.course.get('_isAssessmentPassed');
+          } else if (item._requireElementCompleted) { // current element must be complete
+            criteriaMet = this.model.get('_isComplete');
           }
           return criteriaMet;
         }
@@ -194,7 +196,10 @@ define(function(require) {
 
     Adapt.on('articleView:postRender blockView:postRender componentView:postRender', function(view) {
         if (view.model.get("_navLink") && view.model.get("_navLink")._isEnabled) {
-          new NavLink({model:view.model});
+          // Only render view if it DOESN'T already exist - Work around for assessmentResults component
+          if (!$('.' + view.model.get('_id')).find('.extension-nav-link').length) {
+            new NavLink({model:view.model});
+          }
         }
     });
 

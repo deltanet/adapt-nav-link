@@ -24,7 +24,9 @@ The Nav link attribute group contains values for **_isEnabled**, **_classes**, a
 
 >**_classes** (string):  Defines a css class that is included in the theme.
 
->**_items** (array): This `_items` attributes group stores the properties for a button. It contains values for **_requireCourseCompleted**, **_requireAssessmentPassed**, **_hideAfterClick**, **text**, **_link**, **link**, and **_ariaLabel**.  
+>**_items** (array): This `_items` attributes group stores the properties for a button. It contains values for **_requireElementCompleted**, **_requireCourseCompleted**, **_requireAssessmentPassed**, **_hideAfterClick**, **text**, **_link**, **link**, and **_ariaLabel**.  
+
+>>**_requireElementCompleted** (boolean):  If enabled, the button will be hidden until the Article, Block or Component the **Nav link** extension is enabled on is complete.  
 
 >>**_requireCourseCompleted** (boolean):  If enabled, the button will be hidden until the course is completed.  
 
@@ -47,7 +49,7 @@ Several elements of **Nav link** have been assigned a label using the [aria-labe
 No known limitations.
 
 ----------------------------
-**Version number:**  2.2.0     
+**Version number:**  2.3.0     
 **Framework versions supported:**  ^2.0.4    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-nav-link/graphs/contributors)     
 **Accessibility support:** Yes  

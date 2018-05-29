@@ -48,7 +48,16 @@
                   "items": {
                     "type":"object",
                     "required": true,
-                    "properties":{
+                    "properties": {
+                      "_requireElementCompleted": {
+                        "type": "boolean",
+                        "required": false,
+                        "default": false,
+                        "title": "Article completion required",
+                        "inputType": "Checkbox",
+                        "validators": [],
+                        "help": "If enabled, the button will show if the current Article is complete."
+                      },
                       "_requireCourseCompleted": {
                         "type":"boolean",
                         "required": false,
@@ -149,7 +158,16 @@
                   "items": {
                     "type":"object",
                     "required":true,
-                    "properties":{
+                    "properties": {
+                      "_requireElementCompleted": {
+                        "type": "boolean",
+                        "required": false,
+                        "default": false,
+                        "title": "Block completion required",
+                        "inputType": "Checkbox",
+                        "validators": [],
+                        "help": "If enabled, the button will show if the current Block is complete."
+                      },
                       "_requireCourseCompleted": {
                         "type":"boolean",
                         "required": false,
@@ -250,7 +268,16 @@
                   "items": {
                     "type":"object",
                     "required":true,
-                    "properties":{
+                    "properties": {
+                      "_requireElementCompleted": {
+                        "type": "boolean",
+                        "required": false,
+                        "default": false,
+                        "title": "Component completion required",
+                        "inputType": "Checkbox",
+                        "validators": [],
+                        "help": "If enabled, the button will show if the current Component is complete."
+                      },
                       "_requireCourseCompleted": {
                         "type":"boolean",
                         "required": false,
