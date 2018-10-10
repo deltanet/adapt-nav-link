@@ -8,7 +8,8 @@ define(function(require) {
 
         initialize: function () {
             this.listenTo(Adapt, 'remove', this.remove);
-            // Listen for course completion
+            // Listen for completion
+            this.listenTo(this.model, 'change:_isComplete', this.checkCompletion);
             this.listenTo(Adapt.course, 'change:_isComplete', this.checkCompletion);
             this.listenTo(Adapt.course, 'change:_isAssessmentPassed', this.checkCompletion);
             this.render();
