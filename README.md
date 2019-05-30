@@ -44,13 +44,9 @@ The Nav link attribute group contains values for **_isEnabled**, **_classes**, a
 Several elements of **Nav link** have been assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **Nav link**. These labels are not visible elements. They are utilized by assistive technology such as screen readers. Should the label texts need to be customised, they can be found within the **globals** object in [*properties.schema*](https://github.com/deltanet/adapt-achievements/blob/master/properties.schema).   
 <div float align=right><a href="#top">Back to Top</a></div>
 
-## Limitations
-
-No known limitations.
-
 ----------------------------
-**Version number:**  2.3.1     
-**Framework versions supported:**  ^2.0.4    
+**Version number:**  2.4.0     
+**Framework versions supported:**  2+    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-nav-link/graphs/contributors)     
 **Accessibility support:** Yes  
 **RTL support:** Yes  
