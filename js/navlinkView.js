@@ -134,7 +134,7 @@ define([
         },
 
         navigateToElement: function(link) {
-            Adapt.navigateToElement('.' + link, {duration: 500});
+            Backbone.history.navigate("#/id/"+link, {trigger: true, relpace: false});
         },
 
         navigateToNextElement: function() {
