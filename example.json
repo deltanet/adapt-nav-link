@@ -11,7 +11,7 @@
       "_hideAfterClick": false,
       "text": "Menu",
       "_link": "Parent page", // "Parent page" "Next page" "Previous page" "Next article" "Next block" "Next component" "Custom"
-      "link": "co-10",
+      "link": "",
       "_ariaLabel": "Menu button. Select here to go back to the menu."
     }
   ]

@@ -1,207 +1,53 @@
-define(function(require) {
+define([
+    'core/js/adapt',
+    './navlinkView'
+], function(Adapt, NavlinkView) {
 
-    var Adapt = require('coreJS/adapt');
-    var Backbone = require('backbone');
-    var NavLink = Backbone.View.extend({
+    var NavLink = _.extend({
 
-        className: "extension-nav-link",
-
-        initialize: function () {
-            this.listenTo(Adapt, 'remove', this.remove);
-            // Listen for completion
-            this.listenTo(this.model, 'change:_isComplete', this.checkCompletion);
-            this.listenTo(Adapt.course, 'change:_isComplete', this.checkCompletion);
-            this.listenTo(Adapt.course, 'change:_isAssessmentPassed', this.checkCompletion);
-            this.render();
+        initialize: function() {
+            this.listenToOnce(Adapt, 'app:dataReady', this.onAppDataReady);
         },
 
-        events: {
-            "click .nav-link-button":"initLink"
+        onAppDataReady: function() {
+            this.listenTo(Adapt.config, 'change:_activeLanguage', this.onLangChange);
+
+            this.setupNavlink();
+            this.setupListeners();
         },
 
-        render: function () {
+        onLangChange: function() {
+            this.removeListeners();
+            this.listenToOnce(Adapt, 'app:dataReady', this.onAppDataReady);
+        },
 
-            var data = this.model.toJSON();
-            var template = Handlebars.templates["nav-link"];
+        setupNavlink: function() {
+            this.config = Adapt.course.get('_navLink');
+            this.model = new Backbone.Model(this.config);
+        },
 
-            // Check if 'extensions' div is already in the DOM
-            if (!$('.' + this.model.get('_id')).find('.extensions').length) {
-              // Create containing div if not already there
-              var newDiv = document.createElement("div");
-              newDiv.setAttribute('class', 'extensions');
-              $(newDiv).appendTo('.' + this.model.get('_id') + '>.' +this.model.get("_type")+'-inner');
+        setupListeners: function() {
+            this.listenTo(Adapt, 'articleView:postRender blockView:postRender componentView:postRender', this.renderNavlinkView);
+        },
+
+        removeListeners: function() {
+            this.stopListening(Adapt, 'articleView:postRender blockView:postRender componentView:postRender', this.renderNavlinkView);
+            this.stopListening(Adapt.config, 'change:_activeLanguage', this.onLangChange);
+        },
+
+        renderNavlinkView: function(view) {
+            if (view.model.get('_navLink') && view.model.get('_navLink')._isEnabled) {
+              // Only render view if it DOESN'T already exist - Work around for assessmentResults component
+              if (!$('.' + view.model.get('_id')).find('.extension-nav-link').length) {
+                new NavlinkView({model: view.model});
+              }
             }
-
-            $(this.el).html(template(data)).prependTo('.' + this.model.get('_id') + '>.' +this.model.get("_type")+'-inner' + ' > .extensions');
-
-            this.setupNavLink();
-
-            _.defer(_.bind(function() {
-                this.postRender();
-            }, this));
-        },
-
-        postRender: function() {
-          this.checkCompletion();
-        },
-
-        setupNavLink: function() {
-          // Set vars
-          this.elementID = this.model.get("_id");
-          this.location = Adapt.location._currentId;
-          this.objectNum = 0;
-          this.subObjectNum = 0;
-          this.elementNum = 0;
-
-          // Get all pages in contentObjects
-          this.contentObjects = new Backbone.Collection(Adapt.contentObjects.where({_isAvailable: true}));
-          this.pageId = new Array();
-          this.parentId = new Array();
-          for (var i = 0, l = this.contentObjects.length; i < l; i++) {
-            this.pageId[i] = this.contentObjects.models[i].get('_id');
-            this.parentId[i] = this.contentObjects.models[i].get('_parentId');
-            // Get current page number in the contentObjects Array
-            if(this.pageId[i] == this.location) {
-              this.objectNum = i;
-            }
-          }
-
-          // Get all pages at the current level - i.e. course level or pages in a sub menu
-          this.pageObjects = new Backbone.Collection(Adapt.contentObjects.where({_parentId:this.parentId[this.objectNum] , _isAvailable: true}));
-          this.subPageId = new Array();
-          this.subParentId = new Array();
-          for (var i = 0, l = this.pageObjects.length; i < l; i++) {
-            this.subPageId[i] = this.pageObjects.models[i].get('_id');
-            this.subParentId[i] = this.pageObjects.models[i].get('_parentId');
-            // Get current page number in the subpage Array
-            if(this.subPageId[i] == this.location) {
-              this.subObjectNum = i;
-            }
-          }
-
-          this.setVisitedStates();
-        },
-
-        initLink: function(event) {
-            event.preventDefault();
-            var $item = $(event.currentTarget);
-            var currentItem = this.getCurrentItem($item.index());
-            var link = currentItem._link;
-            var customLink = currentItem.link;
-
-            // Set visited state
-            if(!currentItem.visited) {
-              $item.addClass('visited');
-              currentItem.visited = true;
-            }
-
-            // Check for hide after click feature
-            if (currentItem._hideAfterClick) {
-              $item.css({
-                display: "none"
-              });
-            }
-
-            // Legacy fallback
-            // Check for 'customLink' attribute first so it captures the old 'link' attribute
-            if(!customLink=="") {
-              this.navigateToElement(customLink);
-            } else {
-              switch (link) {
-              case "Parent page":
-                Adapt.trigger("navigation:parentButton");
-                break;
-              case "Next page":
-                this.navigateToElement(this.subPageId[this.subObjectNum + 1]);
-                break;
-              case "Previous page":
-                this.navigateToElement(this.subPageId[this.subObjectNum - 1]);
-                break;
-              case "Next article":
-                this.navigateToNextElement();
-                break;
-              case "Next block":
-                this.navigateToNextElement();
-                break;
-              case "Next component":
-                this.navigateToNextElement();
-                break;
-            }
-          }
-        },
-
-        getCurrentItem: function(index) {
-            return this.model.get('_navLink')._items[index];
-        },
-
-        navigateToElement: function(link) {
-          Adapt.navigateToElement('.' + link, {duration: 500});
-        },
-
-        navigateToNextElement: function() {
-          // Get siblings and create array
-          this.siblings = this.model.getSiblings(true);
-          this.siblingsId = new Array();
-          for (var i = 0, l = this.siblings.length; i < l; i++) {
-            this.siblingsId[i] = this.siblings.models[i].get('_id');
-            // Check current element against array
-            if(this.siblingsId[i] == this.elementID) {
-              this.elementNum = i;
-            }
-          }
-          this.navigateToElement(this.siblingsId[this.elementNum + 1]);
-        },
-
-        setVisitedStates: function() {
-          var items = this.$(".nav-link-inner").children();
-
-          for (var i = 0, l = items.length; i < l; i++) {
-            var item = this.getCurrentItem(i);
-            var $item = this.$(items[i]);
-
-            if(item.visited){
-              $item.addClass('visited');
-            }
-          }
-        },
-
-        checkCompletion: function() {
-          var items = this.$(".nav-link-inner").children();
-
-          for (var i = 0, l = items.length; i < l; i++) {
-            var item = this.getCurrentItem(i);
-            var $item = this.$(items[i]);
-
-            $item.hide();
-            if (this.checkTrackingCriteriaMet(item)) {
-              $item.show();
-            }
-          }
-        },
-
-        checkTrackingCriteriaMet: function(item) {
-          var criteriaMet = true;
-          if (item._requireCourseCompleted && item._requireAssessmentPassed) { // user must complete the content AND pass the assessment
-            criteriaMet = (Adapt.course.get('_isComplete') && Adapt.course.get('_isAssessmentPassed'));
-          } else if (item._requireCourseCompleted) { // user only needs to complete the content
-            criteriaMet = Adapt.course.get('_isComplete');
-          } else if (item._requireAssessmentPassed) { // user only needs to pass the assessment
-            criteriaMet = Adapt.course.get('_isAssessmentPassed');
-          } else if (item._requireElementCompleted) { // current element must be complete
-            criteriaMet = this.model.get('_isComplete');
-          }
-          return criteriaMet;
         }
 
-    });
+    }, Backbone.Events);
 
-    Adapt.on('articleView:postRender blockView:postRender componentView:postRender', function(view) {
-        if (view.model.get("_navLink") && view.model.get("_navLink")._isEnabled) {
-          // Only render view if it DOESN'T already exist - Work around for assessmentResults component
-          if (!$('.' + view.model.get('_id')).find('.extension-nav-link').length) {
-            new NavLink({model:view.model});
-          }
-        }
-    });
+    NavLink.initialize();
+
+    return NavLink;
 
 });
