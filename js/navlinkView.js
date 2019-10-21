@@ -11,7 +11,7 @@ define([
             // Listen for completion
             this.listenTo(this.model, 'change:_isComplete', this.checkCompletion);
             this.listenTo(Adapt.course, 'change:_isComplete', this.checkCompletion);
-            this.listenTo(Adapt.course, 'change:_isAssessmentPassed', this.checkCompletion);
+            this.listenTo(Adapt, 'assessment:complete', this.onAssessmentComplete);
             this.render();
         },
 
@@ -33,6 +33,9 @@ define([
 
             $(this.el).html(template(data)).prependTo('.' + this.model.get('_id') + '>.' +this.model.get('_type')+'-inner' + ' > .extensions');
 
+            this.completionCriteriaMet = false;
+            this.assessmentCriteriaMet = false;
+
             this.setupNavLink();
 
             _.defer(_.bind(function() {
@@ -42,6 +45,7 @@ define([
 
         postRender: function() {
             this.checkCompletion();
+            this.onAssessmentComplete(Adapt.assessment.getState());
         },
 
         setupNavLink: function() {
@@ -166,7 +170,17 @@ define([
             }
         },
 
+        onAssessmentComplete: function(state) {
+            if (state.isPass) {
+                this.assessmentCriteriaMet = true;
+            }
+
+            this.checkCompletion();
+        },
+
         checkCompletion: function() {
+            this.completionCriteriaMet = Adapt.course.get('_isComplete');
+
             var items = this.$('.nav-link-inner').children();
 
             for (var i = 0, l = items.length; i < l; i++) {
@@ -185,11 +199,11 @@ define([
             var criteriaMet = true;
 
             if (item._requireCourseCompleted && item._requireAssessmentPassed) { // user must complete the content AND pass the assessment
-                criteriaMet = (Adapt.course.get('_isComplete') && Adapt.course.get('_isAssessmentPassed'));
+                criteriaMet = (this.completionCriteriaMet && this.assessmentCriteriaMet);
             } else if (item._requireCourseCompleted) { // user only needs to complete the content
-                criteriaMet = Adapt.course.get('_isComplete');
+                criteriaMet = this.completionCriteriaMet;
             } else if (item._requireAssessmentPassed) { // user only needs to pass the assessment
-                criteriaMet = Adapt.course.get('_isAssessmentPassed');
+                criteriaMet = this.assessmentCriteriaMet;
             } else if (item._requireElementCompleted) { // current element must be complete
                 criteriaMet = this.model.get('_isComplete');
             }
