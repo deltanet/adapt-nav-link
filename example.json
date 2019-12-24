@@ -3,6 +3,7 @@
 "_navLink": {
   "_isEnabled": true,
   "_classes": "",
+  "_location": "Bottom of page", // "Below content" "Bottom of page"
   "_items": [
     {
       "_requireElementCompleted": false,

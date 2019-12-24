@@ -12,6 +12,9 @@ define([
             this.listenTo(this.model, 'change:_isComplete', this.checkCompletion);
             this.listenTo(Adapt.course, 'change:_isComplete', this.checkCompletion);
             this.listenTo(Adapt, 'assessment:complete', this.onAssessmentComplete);
+
+            this.listenToOnce(Adapt, "remove", this.removeOnscreen);
+
             this.render();
         },
 
@@ -49,6 +52,21 @@ define([
         },
 
         setupNavLink: function() {
+            if (this.model.get('_navLink')._location) {
+
+              switch (this.model.get('_navLink')._location) {
+              case 'Bottom of page':
+                this.$el.addClass('fixed');
+                this.$el.on('onscreen', _.bind(this.onscreen, this));
+                break;
+              case 'Below content':
+                $(this.el).addClass('inline');
+                break;
+              }
+            } else {
+              this.$el.addClass('inline');
+            }
+
             // Set vars
             this.elementID = this.model.get('_id');
             this.location = Adapt.location._currentId;
@@ -85,6 +103,25 @@ define([
             }
 
             this.setVisitedStates();
+        },
+
+        onscreen: function(event, measurements) {
+            // This is to fix common miscalculation issues
+            var isJustOffscreen = (measurements.bottom > -100);
+
+            if (measurements.onscreen || isJustOffscreen) {
+                this.setButtonVisible(true);
+            } else {
+                this.setButtonVisible(false);
+            }
+        },
+
+        setButtonVisible: function(isVisible) {
+          if (isVisible) {
+            this.$(".nav-link-button").removeClass("display-none");
+          } else {
+            this.$(".nav-link-button").addClass("display-none");
+          }
         },
 
         initLink: function(event) {
@@ -209,6 +246,10 @@ define([
             }
 
             return criteriaMet;
+        },
+
+        removeOnscreen: function() {
+            this.$el.off('onscreen');
         }
 
     });

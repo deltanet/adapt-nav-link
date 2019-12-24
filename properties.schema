@@ -41,6 +41,15 @@
                   "inputType": "Text",
                   "validators": []
                 },
+                "_location": {
+                  "type": "string",
+                  "required": false,
+                  "default": "Below content",
+                  "title": "Button Location",
+                  "inputType": {"type": "Select", "options": ["Below content", "Bottom of page"]},
+                  "validators": [],
+                  "help": "Set where the button should be located."
+                },
                 "_items": {
                   "type":"array",
                   "required": true,
@@ -151,6 +160,15 @@
                   "inputType": "Text",
                   "validators": []
                 },
+                "_location": {
+                  "type": "string",
+                  "required": false,
+                  "default": "Below content",
+                  "title": "Button Location",
+                  "inputType": {"type": "Select", "options": ["Below content", "Bottom of page"]},
+                  "validators": [],
+                  "help": "Set where the button should be located."
+                },
                 "_items": {
                   "type":"array",
                   "required": true,
@@ -260,6 +278,15 @@
                   "title": "Classes",
                   "inputType": "Text",
                   "validators": []
+                },
+                "_location": {
+                  "type": "string",
+                  "required": false,
+                  "default": "Below content",
+                  "title": "Button Location",
+                  "inputType": {"type": "Select", "options": ["Below content", "Bottom of page"]},
+                  "validators": [],
+                  "help": "Set where the button should be located."
                 },
                 "_items": {
                   "type":"array",

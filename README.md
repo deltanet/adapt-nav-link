@@ -18,11 +18,13 @@ The attributes listed below are properly formatted as JSON in [*example.json*](h
 
 ### Attributes
 
-The Nav link attribute group contains values for **_isEnabled**, **_classes**, and **_items**.
+The Nav link attribute group contains values for **_isEnabled**, **_classes**, **_location**, and **_items**.
 
 >**_isEnabled** (boolean):  Turns on and off the **Nav link** extension. Can be set to disable **Nav link** when not required.
 
 >**_classes** (string):  Defines a css class that is included in the theme.
+
+>>**_location** (string):  Defines the position of the button. Options are `"Below content"`, and `"Bottom of page"`. The default is `"Below content"`.
 
 >**_items** (array): This `_items` attributes group stores the properties for a button. It contains values for **_requireElementCompleted**, **_requireCourseCompleted**, **_requireAssessmentPassed**, **_hideAfterClick**, **text**, **_link**, **link**, and **_ariaLabel**.  
 
@@ -45,7 +47,7 @@ Several elements of **Nav link** have been assigned a label using the [aria-labe
 <div float align=right><a href="#top">Back to Top</a></div>
 
 ----------------------------
-**Version number:**  3.0.1     
+**Version number:**  3.1.0     
 **Framework versions supported:**  4+    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-nav-link/graphs/contributors)     
 **Accessibility support:** Yes  

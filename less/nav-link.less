@@ -1,11 +1,34 @@
 .extension-nav-link {
-	display: inline-block;
+	&.inline {
+		display: inline-block;
+
+		.nav-link-inner {
+			margin-top: @button-margin;
+		}
+	}
+
+	&.fixed {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+
+		.nav-link-inner {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			display: block;
+			margin-top: 0;
+		}
+	}
+
 	.nav-link-inner {
-		margin-top: @button-margin;
 		&.center {
 			text-align: center;
 		}
 	}
+
 	.nav-link-button {
 		&.visited {
 			color: @item-text-color-visited;
