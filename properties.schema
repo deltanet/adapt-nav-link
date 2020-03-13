@@ -118,7 +118,7 @@
                         "title": "Specific Page Number",
                         "inputType": "Number",
                         "validators": ["number"],
-                        "help": "If 'Specific parent page' is selected above, set the page number you want to link to."
+                        "help": "If 'Specific page' is selected above, set the page number you want to link to."
                       },
                       "link": {
                         "type": "string",
@@ -242,10 +242,10 @@
                       "_specificPage": {
                         "type": "number",
                         "required": false,
-                        "title": "Specific Parent Number",
+                        "title": "Specific Page Number",
                         "inputType": "Number",
                         "default": 2,
-                        "help": "If 'Specific parent page' is selected above, set the page number you want to link to.",
+                        "help": "If 'Specific page' is selected above, set the page number you want to link to.",
                         "validators": ["number"]
                       },
                       "link": {
@@ -370,10 +370,10 @@
                       "_specificPage": {
                         "type": "number",
                         "required": false,
-                        "title": "Specific Parent Number",
+                        "title": "Specific Page Number",
                         "inputType": "Number",
                         "default": 2,
-                        "help": "If 'Specific parent page' is selected above, set the page number you want to link to.",
+                        "help": "If 'Specific page' is selected above, set the page number you want to link to.",
                         "validators": ["number"]
                       },
                       "link": {

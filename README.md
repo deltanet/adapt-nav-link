@@ -49,7 +49,7 @@ Several elements of **Nav link** have been assigned a label using the [aria-labe
 <div float align=right><a href="#top">Back to Top</a></div>
 
 ----------------------------
-**Version number:**  3.2.1  
+**Version number:**  3.2.2  
 **Framework versions supported:**  4+  
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-nav-link/graphs/contributors)  
 **Accessibility support:** Yes  
