@@ -36,7 +36,7 @@ The Nav link attribute group contains values for **_isEnabled**, **_classes**, *
 
 >>**_hideAfterClick** (boolean):  If enabled, the button will be hidden when the user selects it.  
 
->>**_link** (string):  Defines the destination of the button link. Options are `"Parent page"`, `"Next page"`, `"Previous page"`, `"Specific page"`, `"Next article"`, `"Next block"`, `"Next component"`, and `"Custom"`. The default is `"Parent page"`.
+>>**_link** (string):  Defines the destination of the button link. Options are `"Parent page"`, `"Grandparent page"`, `"Next page"`, `"Previous page"`, `"Specific page"`, `"Next article"`, `"Next block"`, `"Next component"`, and `"Custom"`. The default is `"Parent page"`.
 
 >>**_specificPage** (string):  If `"Specific page"` is set then this defines which parent page the button links to.
 
@@ -49,7 +49,7 @@ Several elements of **Nav link** have been assigned a label using the [aria-labe
 <div float align=right><a href="#top">Back to Top</a></div>
 
 ----------------------------
-**Version number:**  3.2.2  
+**Version number:**  3.3.0  
 **Framework versions supported:**  4+  
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-nav-link/graphs/contributors)  
 **Accessibility support:** Yes  

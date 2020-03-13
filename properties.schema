@@ -107,7 +107,7 @@
                         "required": true,
                         "default": "Parent page",
                         "title": "Destination",
-                        "inputType": {"type": "Select", "options": ["Parent page", "Next page", "Previous page", "Specific page", "Next article", "Custom"]},
+                        "inputType": {"type": "Select", "options": ["Parent page", "Grandparent page", "Previous page", "Next page", "Specific page", "Next article", "Custom"]},
                         "validators": [],
                         "help": "Set where the button should link to."
                       },
@@ -235,7 +235,7 @@
                         "required": true,
                         "default": "Parent page",
                         "title": "Destination",
-                        "inputType": {"type": "Select", "options": ["Parent page", "Next page", "Previous page", "Specific page", "Next block", "Custom"]},
+                        "inputType": {"type": "Select", "options": ["Parent page", "Grandparent page", "Previous page", "Next page", "Specific page", "Next block", "Custom"]},
                         "validators": [],
                         "help": "Set where the button should link to."
                       },
@@ -363,7 +363,7 @@
                         "required": true,
                         "default": "Parent page",
                         "title": "Destination",
-                        "inputType": {"type": "Select", "options": ["Parent page", "Next page", "Previous page", "Specific page", "Next component", "Custom"]},
+                        "inputType": {"type": "Select", "options": ["Parent page", "Grandparent page", "Previous page", "Next page", "Specific page", "Next component", "Custom"]},
                         "validators": [],
                         "help": "Set where the button should link to."
                       },

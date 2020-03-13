@@ -76,8 +76,8 @@ define([
 
             // Get all pages in contentObjects
             this.contentObjects = new Backbone.Collection(Adapt.contentObjects.where({_isAvailable: true}));
-            this.pageId = new Array();
-            this.parentId = new Array();
+            this.pageId = [];
+            this.parentId = [];
 
             for (var i = 0, l = this.contentObjects.length; i < l; i++) {
                 this.pageId[i] = this.contentObjects.models[i].get('_id');
@@ -90,12 +90,14 @@ define([
 
             // Get all pages at the current level - i.e. course level or pages in a sub menu
             this.pageObjects = new Backbone.Collection(Adapt.contentObjects.where({_parentId:this.parentId[this.objectNum] , _isAvailable: true}));
-            this.subPageId = new Array();
-            this.subParentId = new Array();
+            this.subPageId = [];
+            this.subParentId = [];
+            this.subGrandparentId = [];
 
             for (var i = 0, l = this.pageObjects.length; i < l; i++) {
                 this.subPageId[i] = this.pageObjects.models[i].get('_id');
                 this.subParentId[i] = this.pageObjects.models[i].get('_parentId');
+                this.subGrandparentId[i] = this.pageObjects.models[i].getParent().get('_parentId');
                 // Get current page number in the subpage Array
                 if(this.subPageId[i] == this.location) {
                     this.subObjectNum = i;
@@ -151,6 +153,9 @@ define([
                 case 'Parent page':
                   Adapt.trigger('navigation:parentButton');
                   break;
+                case 'Grandparent page':
+                  this.navigateToElement(this.subGrandparentId[this.subObjectNum]);
+                  break;
                 case 'Next page':
                   this.navigateToElement(this.subPageId[this.subObjectNum + 1]);
                   break;
@@ -184,7 +189,7 @@ define([
         navigateToNextElement: function() {
             // Get siblings and create array
             this.siblings = this.model.getSiblings(true);
-            this.siblingsId = new Array();
+            this.siblingsId = [];
 
             for (var i = 0, l = this.siblings.length; i < l; i++) {
                 this.siblingsId[i] = this.siblings.models[i].get('_id');
