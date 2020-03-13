@@ -148,9 +148,6 @@ define([
                 this.navigateToElement(customLink);
             } else {
                 switch (link) {
-                case 'Specific parent page':
-                  this.navigateToElement(this.subPageId[currentItem._specificParent]);
-                  break;
                 case 'Parent page':
                   Adapt.trigger('navigation:parentButton');
                   break;
@@ -159,6 +156,9 @@ define([
                   break;
                 case 'Previous page':
                   this.navigateToElement(this.subPageId[this.subObjectNum - 1]);
+                  break;
+                case 'Specific page':
+                  this.navigateToElement(this.subPageId[currentItem._specificPage]);
                   break;
                 case 'Next article':
                   this.navigateToNextElement();

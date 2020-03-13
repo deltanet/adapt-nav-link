@@ -107,15 +107,15 @@
                         "required": true,
                         "default": "Parent page",
                         "title": "Destination",
-                        "inputType": {"type": "Select", "options": ["Specific parent page", "Parent page", "Next page", "Previous page", "Next article", "Custom"]},
+                        "inputType": {"type": "Select", "options": ["Parent page", "Next page", "Previous page", "Specific page", "Next article", "Custom"]},
                         "validators": [],
                         "help": "Set where the button should link to."
                       },
-                      "_specificParent": {
+                      "_specificPage": {
                         "type": "number",
                         "required": false,
                         "default": 2,
-                        "title": "Specific Parent Number",
+                        "title": "Specific Page Number",
                         "inputType": "Number",
                         "validators": ["number"],
                         "help": "If 'Specific parent page' is selected above, set the page number you want to link to."
@@ -235,11 +235,11 @@
                         "required": true,
                         "default": "Parent page",
                         "title": "Destination",
-                        "inputType": {"type": "Select", "options": ["Specific parent page", "Parent page", "Next page", "Previous page", "Next block", "Custom"]},
+                        "inputType": {"type": "Select", "options": ["Parent page", "Next page", "Previous page", "Specific page", "Next block", "Custom"]},
                         "validators": [],
                         "help": "Set where the button should link to."
                       },
-                      "_specificParent": {
+                      "_specificPage": {
                         "type": "number",
                         "required": false,
                         "title": "Specific Parent Number",
@@ -363,11 +363,11 @@
                         "required": true,
                         "default": "Parent page",
                         "title": "Destination",
-                        "inputType": {"type": "Select", "options": ["Specific parent page", "Parent page", "Next page", "Previous page", "Next component", "Custom"]},
+                        "inputType": {"type": "Select", "options": ["Parent page", "Next page", "Previous page", "Specific page", "Next component", "Custom"]},
                         "validators": [],
                         "help": "Set where the button should link to."
                       },
-                      "_specificParent": {
+                      "_specificPage": {
                         "type": "number",
                         "required": false,
                         "title": "Specific Parent Number",
