@@ -148,6 +148,9 @@ define([
                 this.navigateToElement(customLink);
             } else {
                 switch (link) {
+                case 'Specific parent page':
+                  this.navigateToElement(this.subPageId[currentItem._specificParent]);
+                  break;
                 case 'Parent page':
                   Adapt.trigger('navigation:parentButton');
                   break;

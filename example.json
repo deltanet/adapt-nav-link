@@ -11,7 +11,8 @@
       "_requireAssessmentPassed": false,
       "_hideAfterClick": false,
       "text": "Menu",
-      "_link": "Parent page", // "Parent page" "Next page" "Previous page" "Next article" "Next block" "Next component" "Custom"
+      "_link": "Parent page", // "Specific parent page" "Parent page" "Next page" "Previous page" "Next article" "Next block" "Next component" "Custom"
+      "_specificParent": null,
       "link": "",
       "_ariaLabel": "Menu button. Select here to go back to the menu."
     }

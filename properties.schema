@@ -106,19 +106,28 @@
                         "type": "string",
                         "required": true,
                         "default": "Parent page",
-                        "title": "Link Destination",
-                        "inputType": {"type": "Select", "options": ["Parent page", "Next page", "Previous page", "Next article", "Custom"]},
+                        "title": "Destination",
+                        "inputType": {"type": "Select", "options": ["Specific parent page", "Parent page", "Next page", "Previous page", "Next article", "Custom"]},
                         "validators": [],
                         "help": "Set where the button should link to."
+                      },
+                      "_specificParent": {
+                        "type": "number",
+                        "required": false,
+                        "default": 2,
+                        "title": "Specific Parent Number",
+                        "inputType": "Number",
+                        "validators": ["number"],
+                        "help": "If 'Specific parent page' is selected above, set the page number you want to link to."
                       },
                       "link": {
                         "type": "string",
                         "required": false,
                         "default": "",
-                        "title": "Custom Link ID",
+                        "title": "Custom ID",
                         "inputType": "Text",
                         "validators": [],
-                        "help": "If 'Custom' is selected above, paste the ID of the element you want to link to."
+                        "help": "If 'Custom' is selected above, paste the ID of the element you want to link to. WARNING! This link will be broken if the course is copied or imported in the Authoring Tool."
                       },
                       "_ariaLabel": {
                         "type":"string",
@@ -216,7 +225,7 @@
                         "type":"string",
                         "required": true,
                         "default": "",
-                        "title": "Nav Link Text",
+                        "title": "Button Text",
                         "inputType": "Text",
                         "validators": ["required"],
                         "translatable": true
@@ -225,16 +234,25 @@
                         "type": "string",
                         "required": true,
                         "default": "Parent page",
-                        "title": "Link Destination",
-                        "inputType": {"type": "Select", "options": ["Parent page", "Next page", "Previous page", "Next block", "Custom"]},
+                        "title": "Destination",
+                        "inputType": {"type": "Select", "options": ["Specific parent page", "Parent page", "Next page", "Previous page", "Next block", "Custom"]},
                         "validators": [],
                         "help": "Set where the button should link to."
+                      },
+                      "_specificParent": {
+                        "type": "number",
+                        "required": false,
+                        "title": "Specific Parent Number",
+                        "inputType": "Number",
+                        "default": 2,
+                        "help": "If 'Specific parent page' is selected above, set the page number you want to link to.",
+                        "validators": ["number"]
                       },
                       "link": {
                         "type": "string",
                         "required": false,
                         "default": "",
-                        "title": "Custom Link ID",
+                        "title": "Custom ID",
                         "inputType": "Text",
                         "validators": [],
                         "help": "If 'Custom' is selected above, paste the ID of the element you want to link to."
@@ -335,7 +353,7 @@
                         "type":"string",
                         "required": true,
                         "default": "",
-                        "title": "Nav Link Text",
+                        "title": "Button Text",
                         "inputType": "Text",
                         "validators": ["required"],
                         "translatable": true
@@ -344,16 +362,25 @@
                         "type": "string",
                         "required": true,
                         "default": "Parent page",
-                        "title": "Link Destination",
-                        "inputType": {"type": "Select", "options": ["Parent page", "Next page", "Previous page", "Next component", "Custom"]},
+                        "title": "Destination",
+                        "inputType": {"type": "Select", "options": ["Specific parent page", "Parent page", "Next page", "Previous page", "Next component", "Custom"]},
                         "validators": [],
                         "help": "Set where the button should link to."
+                      },
+                      "_specificParent": {
+                        "type": "number",
+                        "required": false,
+                        "title": "Specific Parent Number",
+                        "inputType": "Number",
+                        "default": 2,
+                        "help": "If 'Specific parent page' is selected above, set the page number you want to link to.",
+                        "validators": ["number"]
                       },
                       "link": {
                         "type": "string",
                         "required": false,
                         "default": "",
-                        "title": "Custom Link ID",
+                        "title": "Custom ID",
                         "inputType": "Text",
                         "validators": [],
                         "help": "If 'Custom' is selected above, paste the ID of the element you want to link to."
