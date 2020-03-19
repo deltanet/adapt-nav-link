@@ -12,11 +12,21 @@ If **Nav link** has been uninstalled from the Adapt authoring tool, it may be re
 
 ## Settings Overview
 
-**Nav link** may be configured on three levels: article (*articles.json*), block (*blocks.json*), and component (*components.json*).
+**Nav link** may be configured on four levels: page/menu (*contentObjects.json*), article (*articles.json*), block (*blocks.json*), and component (*components.json*).
 
 The attributes listed below are properly formatted as JSON in [*example.json*](https://github.com/deltanet/adapt-nav-link/blob/master/example.json).  
 
 ### Attributes
+
+**Page / menu**
+
+The Nav link attribute group at page and menu level contains values for **_isEnabled**, and **_navigationID**.
+
+>**_isEnabled** (boolean):  Turns on and off the **Nav link** extension. Can be set to disable **Nav link** when not required.
+
+>**_navigationID** (string):  This defines a name for the page which a nav link button can link to.
+
+**Article / Block / Component**
 
 The Nav link attribute group contains values for **_isEnabled**, **_classes**, **_location**, and **_items**.
 
@@ -36,9 +46,9 @@ The Nav link attribute group contains values for **_isEnabled**, **_classes**, *
 
 >>**_hideAfterClick** (boolean):  If enabled, the button will be hidden when the user selects it.  
 
->>**_link** (string):  Defines the destination of the button link. Options are `"Parent page"`, `"Grandparent page"`, `"Next page"`, `"Previous page"`, `"Specific page"`, `"Next article"`, `"Next block"`, `"Next component"`, and `"Custom"`. The default is `"Parent page"`.
+>>**_link** (string):  Defines the destination of the button link. Options are `"Parent page"`, `"Next page"`, `"Previous page"`, `"Next article"`, `"Next block"`, `"Next component"`, `"Navigation ID"`, and `"Custom"`. The default is `"Parent page"`.
 
->>**_specificPage** (string):  If `"Specific page"` is set then this defines which parent page the button links to.
+>>**_navigationID** (string):  If `"Navigation ID"` is set then this defines which page the button links to.
 
 >>**link** (string):  If `"Custom"` is set then this defines the ID of the element the button links to.
 
@@ -49,7 +59,7 @@ Several elements of **Nav link** have been assigned a label using the [aria-labe
 <div float align=right><a href="#top">Back to Top</a></div>
 
 ----------------------------
-**Version number:**  3.3.0  
+**Version number:**  3.4.0  
 **Framework versions supported:**  4+  
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-nav-link/graphs/contributors)  
 **Accessibility support:** Yes  

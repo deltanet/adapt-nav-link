@@ -1,21 +1,48 @@
 {
-  "type":"object",
+  "type": "object",
   "$schema": "http://json-schema.org/draft-04/schema",
   "id": "http://jsonschema.net",
-  "required":false,
-  "properties":{
+  "required": false,
+  "properties": {
     "pluginLocations": {
-      "type":"object",
-      "required":true,
-      "properties":{
+      "type": "object",
+      "required": true,
+      "properties": {
         "config": {
-          "type":"object"
+          "type": "object"
         },
         "course": {
-          "type":"object"
+          "type": "object"
         },
         "contentobject": {
-          "type":"object"
+          "type": "object",
+          "properties": {
+            "_navLink": {
+              "type": "object",
+              "required": false,
+              "legend": "Nav Link",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "required": true,
+                  "default": false,
+                  "title": "Is Enabled",
+                  "inputType": "Checkbox",
+                  "validators": [],
+                  "help": "Controls whether the Nav Link extension is enabled or disabled."
+                },
+                "_navigationID": {
+                  "type": "string",
+                  "required": false,
+                  "default": "",
+                  "title": "Navigation ID",
+                  "inputType": "Text",
+                  "validators": [],
+                  "help": "Defines a unique name for the page which Nav link items can reference."
+                }
+              }
+            }
+          }
         },
         "article": {
           "type":"object",
@@ -107,18 +134,18 @@
                         "required": true,
                         "default": "Parent page",
                         "title": "Destination",
-                        "inputType": {"type": "Select", "options": ["Parent page", "Grandparent page", "Previous page", "Next page", "Specific page", "Next article", "Custom"]},
+                        "inputType": {"type": "Select", "options": ["Parent page", "Previous page", "Next page", "Next article", "Navigation ID", "Custom"]},
                         "validators": [],
                         "help": "Set where the button should link to."
                       },
-                      "_specificPage": {
-                        "type": "number",
+                      "_navigationID": {
+                        "type": "string",
                         "required": false,
-                        "default": 2,
-                        "title": "Specific Page Number",
-                        "inputType": "Number",
-                        "validators": ["number"],
-                        "help": "If 'Specific page' is selected above, set the page number you want to link to."
+                        "default": "",
+                        "title": "Navigation ID",
+                        "inputType": "Text",
+                        "validators": [],
+                        "help": "If 'Navigation ID' is selected above, define the name of the page you want to link to."
                       },
                       "link": {
                         "type": "string",
@@ -235,18 +262,18 @@
                         "required": true,
                         "default": "Parent page",
                         "title": "Destination",
-                        "inputType": {"type": "Select", "options": ["Parent page", "Grandparent page", "Previous page", "Next page", "Specific page", "Next block", "Custom"]},
+                        "inputType": {"type": "Select", "options": ["Parent page", "Previous page", "Next page", "Next block", "Navigation ID", "Custom"]},
                         "validators": [],
                         "help": "Set where the button should link to."
                       },
-                      "_specificPage": {
-                        "type": "number",
+                      "_navigationID": {
+                        "type": "string",
                         "required": false,
-                        "title": "Specific Page Number",
-                        "inputType": "Number",
-                        "default": 2,
-                        "help": "If 'Specific page' is selected above, set the page number you want to link to.",
-                        "validators": ["number"]
+                        "default": "",
+                        "title": "Navigation ID",
+                        "inputType": "Text",
+                        "validators": [],
+                        "help": "If 'Navigation ID' is selected above, define the name of the page you want to link to."
                       },
                       "link": {
                         "type": "string",
@@ -363,18 +390,18 @@
                         "required": true,
                         "default": "Parent page",
                         "title": "Destination",
-                        "inputType": {"type": "Select", "options": ["Parent page", "Grandparent page", "Previous page", "Next page", "Specific page", "Next component", "Custom"]},
+                        "inputType": {"type": "Select", "options": ["Parent page", "Previous page", "Next page", "Next component", "Navigation ID", "Custom"]},
                         "validators": [],
                         "help": "Set where the button should link to."
                       },
-                      "_specificPage": {
-                        "type": "number",
+                      "_navigationID": {
+                        "type": "string",
                         "required": false,
-                        "title": "Specific Page Number",
-                        "inputType": "Number",
-                        "default": 2,
-                        "help": "If 'Specific page' is selected above, set the page number you want to link to.",
-                        "validators": ["number"]
+                        "default": "",
+                        "title": "Navigation ID",
+                        "inputType": "Text",
+                        "validators": [],
+                        "help": "If 'Navigation ID' is selected above, define the name of the page you want to link to."
                       },
                       "link": {
                         "type": "string",

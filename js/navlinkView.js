@@ -13,7 +13,7 @@ define([
             this.listenTo(Adapt.course, 'change:_isComplete', this.checkCompletion);
             this.listenTo(Adapt, 'assessment:complete', this.onAssessmentComplete);
 
-            this.listenToOnce(Adapt, "remove", this.removeOnscreen);
+            this.listenToOnce(Adapt, 'remove', this.removeOnscreen);
 
             this.render();
         },
@@ -92,12 +92,10 @@ define([
             this.pageObjects = new Backbone.Collection(Adapt.contentObjects.where({_parentId:this.parentId[this.objectNum] , _isAvailable: true}));
             this.subPageId = [];
             this.subParentId = [];
-            this.subGrandparentId = [];
 
             for (var i = 0, l = this.pageObjects.length; i < l; i++) {
                 this.subPageId[i] = this.pageObjects.models[i].get('_id');
                 this.subParentId[i] = this.pageObjects.models[i].get('_parentId');
-                this.subGrandparentId[i] = this.pageObjects.models[i].getParent().get('_parentId');
                 // Get current page number in the subpage Array
                 if(this.subPageId[i] == this.location) {
                     this.subObjectNum = i;
@@ -120,9 +118,9 @@ define([
 
         setButtonVisible: function(isVisible) {
           if (isVisible) {
-            this.$(".nav-link-button").removeClass("display-none");
+            this.$('.nav-link-button').removeClass('display-none');
           } else {
-            this.$(".nav-link-button").addClass("display-none");
+            this.$('.nav-link-button').addClass('display-none');
           }
         },
 
@@ -132,6 +130,7 @@ define([
             var currentItem = this.getCurrentItem($item.index());
             var link = currentItem._link;
             var customLink = currentItem.link;
+            var navigationID = currentItem._navigationID;
 
             // Set visited state
             if(!currentItem.visited) {
@@ -153,17 +152,11 @@ define([
                 case 'Parent page':
                   Adapt.trigger('navigation:parentButton');
                   break;
-                case 'Grandparent page':
-                  this.navigateToElement(this.subGrandparentId[this.subObjectNum]);
-                  break;
                 case 'Next page':
                   this.navigateToElement(this.subPageId[this.subObjectNum + 1]);
                   break;
                 case 'Previous page':
                   this.navigateToElement(this.subPageId[this.subObjectNum - 1]);
-                  break;
-                case 'Specific page':
-                  this.navigateToElement(this.subPageId[currentItem._specificPage]);
                   break;
                 case 'Next article':
                   this.navigateToNextElement();
@@ -173,6 +166,9 @@ define([
                   break;
                 case 'Next component':
                   this.navigateToNextElement();
+                  break;
+                case 'Navigation ID':
+                  this.navigateToNavigationID(navigationID);
                   break;
                 }
             }
@@ -200,6 +196,18 @@ define([
             }
 
             this.navigateToElement(this.siblingsId[this.elementNum + 1]);
+        },
+
+        navigateToNavigationID: function(id) {
+          for (var i = 0; i < this.contentObjects.length; i++) {
+            if (this.contentObjects.models[i].has('_navLink') && this.contentObjects.models[i].get('_navLink')._isEnabled) {
+              if (id == this.contentObjects.models[i].get('_navLink')._navigationID) {
+                var link = this.contentObjects.models[i].get('_id');
+              }
+            }
+          }
+
+          this.navigateToElement(link);
         },
 
         setVisitedStates: function() {
