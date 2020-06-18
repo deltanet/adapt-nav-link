@@ -159,13 +159,13 @@ define([
                   this.navigateToElement(this.subPageId[this.subObjectNum - 1]);
                   break;
                 case 'Next article':
-                  this.navigateToNextElement();
+                  this.scrollToElement();
                   break;
                 case 'Next block':
-                  this.navigateToNextElement();
+                  this.scrollToElement();
                   break;
                 case 'Next component':
-                  this.navigateToNextElement();
+                  this.scrollToElement();
                   break;
                 case 'Navigation ID':
                   this.navigateToNavigationID(navigationID);
@@ -182,7 +182,7 @@ define([
             Backbone.history.navigate("#/id/"+link, {trigger: true, relpace: false});
         },
 
-        navigateToNextElement: function() {
+        scrollToElement: function() {
             // Get siblings and create array
             this.siblings = this.model.getSiblings(true);
             this.siblingsId = [];
@@ -195,7 +195,7 @@ define([
                 }
             }
 
-            this.navigateToElement(this.siblingsId[this.elementNum + 1]);
+            Adapt.scrollTo("." + this.siblingsId[this.elementNum + 1], { duration:400 });
         },
 
         navigateToNavigationID: function(id) {
