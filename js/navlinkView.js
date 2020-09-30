@@ -48,7 +48,10 @@ define([
 
     postRender: function () {
       this.checkCompletion();
-      this.onAssessmentComplete(Adapt.assessment.getState());
+
+      if (Adapt.assessment) {
+        this.onAssessmentComplete(Adapt.assessment.getState());
+      }
     },
 
     setupNavLink: function () {
