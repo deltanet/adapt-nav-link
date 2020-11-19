@@ -153,7 +153,7 @@ define([
       } else {
         switch (link) {
         case 'Parent page':
-          Adapt.trigger('navigation:parentButton');
+          Adapt.router.navigateToParent();
           break;
         case 'Next page':
           this.navigateToElement(this.subPageId[this.subObjectNum + 1]);
