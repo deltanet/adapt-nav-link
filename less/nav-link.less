@@ -1,4 +1,4 @@
-.extension-nav-link {
+.navlink {
 	&.inline {
 		display: inline-block;
 	}
@@ -9,7 +9,7 @@
 		left: 0;
 		right: 0;
 
-		.nav-link-inner {
+		.navlink__inner {
 			position: fixed;
 			bottom: 0;
 			left: 0;
@@ -19,22 +19,24 @@
 		}
 	}
 
-	.nav-link-inner {
+	&__inner {
 		&.center {
 			text-align: center;
 		}
 	}
 
-	.nav-link-button {
-		margin-top: @button-margin;
+	&__btn {
+		margin-top: @btn-margin;
+		margin-left: @btn-margin / 2;
+		margin-right: @btn-margin / 2;
 
 		&.visited {
-			color: @item-text-color-visited;
-			background-color: @item-color-visited;
-			border-color: @item-border-color-visited;
+			color: @visited-inverted;
+			background-color: @visited;
 		}
 	}
 }
+
 .extensions {
 	text-align: center;
 }
