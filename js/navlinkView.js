@@ -60,7 +60,7 @@ define([
               switch (this.model.get('_navLink')._location) {
               case 'Bottom of page':
                 this.$el.addClass('fixed');
-                this.$el.on('onscreen', _.bind(this.onscreen, this));
+                $('.' + this.model.get('_id')).on('onscreen', _.bind(this.onscreen, this));
                 break;
               case 'Below content':
                 $(this.el).addClass('inline');
@@ -109,21 +109,27 @@ define([
         },
 
         onscreen: function(event, measurements) {
-            // This is to fix common miscalculation issues
-            var isJustOffscreen = (measurements.bottom > -100);
+            var visible = this.model.get('_isVisible');
+            var isOnscreen = measurements.onscreen;
 
-            if (measurements.onscreen || isJustOffscreen) {
-                this.setButtonVisible(true);
+            var elementTopOnscreenY = measurements.percentFromTop < 40 && measurements.percentFromTop > 0;
+            var elementBottomOnscreenY = measurements.percentFromTop < 40 && measurements.percentFromBottom < 40;
+
+            var isOnscreenY = elementTopOnscreenY || elementBottomOnscreenY;
+
+            // Check for element coming on screen
+            if (visible && isOnscreen && isOnscreenY) {
+              this.setButtonVisible(true);
             } else {
-                this.setButtonVisible(false);
+              this.setButtonVisible(false);
             }
         },
 
         setButtonVisible: function(isVisible) {
           if (isVisible) {
-            this.$('.nav-link-button').removeClass('display-none');
+            this.$('.nav-link-inner').removeClass('display-none');
           } else {
-            this.$('.nav-link-button').addClass('display-none');
+            this.$('.nav-link-inner').addClass('display-none');
           }
         },
 
@@ -268,7 +274,7 @@ define([
         },
 
         removeOnscreen: function() {
-            this.$el.off('onscreen');
+            $('.' + this.model.get('_id')).off('onscreen');
         }
 
     });

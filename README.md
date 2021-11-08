@@ -36,7 +36,7 @@ The Nav link attribute group contains values for **_isEnabled**, **_classes**, *
 
 >>**_location** (string):  Defines the position of the button. Options are `"Below content"`, and `"Bottom of page"`. The default is `"Below content"`.
 
->**_items** (array): This `_items` attributes group stores the properties for a button. It contains values for **_requireElementCompleted**, **_requireCourseCompleted**, **_requireAssessmentPassed**, **_hideAfterClick**, **text**, **_link**, **link**, and **_ariaLabel**.  
+>**_items** (array): This `_items` attributes group stores the properties for a button. It contains values for **_requireElementCompleted**, **_requireCourseCompleted**, **_requireAssessmentPassed**, **_hideAfterClick**, **text**, **_icon**, **_link**, **link**, and **_ariaLabel**.  
 
 >>**_requireElementCompleted** (boolean):  If enabled, the button will be hidden until the Article, Block or Component the **Nav link** extension is enabled on is complete.  
 
@@ -45,6 +45,10 @@ The Nav link attribute group contains values for **_isEnabled**, **_classes**, *
 >>**_requireAssessmentPassed** (boolean):  If enabled, the button will be hidden until the assessment is passed.  
 
 >>**_hideAfterClick** (boolean):  If enabled, the button will be hidden when the user selects it.  
+
+>>**text** (string): Defines the title on the button.  
+
+>>**_icon** (string): Class name for the icon. The class should be defined in the theme.  
 
 >>**_link** (string):  Defines the destination of the button link. Options are `"Parent page"`, `"Next page"`, `"Previous page"`, `"Next article"`, `"Next block"`, `"Next component"`, `"Navigation ID"`, and `"Custom"`. The default is `"Parent page"`.
 
@@ -59,7 +63,7 @@ Several elements of **Nav link** have been assigned a label using the [aria-labe
 <div float align=right><a href="#top">Back to Top</a></div>
 
 ----------------------------
-**Version number:**  3.4.3  
+**Version number:**  3.5.0  
 **Framework versions supported:**  4+  
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-nav-link/graphs/contributors)  
 **Accessibility support:** Yes  

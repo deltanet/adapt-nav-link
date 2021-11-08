@@ -1,5 +1,32 @@
 <div class="nav-link-inner {{_navLink._classes}}">
   {{#each _navLink._items}}
-  <button class="nav-link-button"{{#if _ariaLabel}} aria-label="{{_ariaLabel}}"{{/if}} role="link">{{text}}</button>
+
+  {{#if _link}}
+  <button class="nav-link-button"{{#if _ariaLabel}} aria-label="{{_ariaLabel}}"{{/if}} role="link">
+    {{#if text}}
+      {{text}}
+    {{/if}}
+
+    {{#if _icon}}
+    <div class="nav-link-icon icon {{_icon}}{{#if text}} is-text{{/if}}"></div>
+    {{/if}}
+  </button>
+
+  {{else}}
+  <div class="nav-link-graphic">
+
+    {{#if text}}
+    <div class="nav-link-text">
+      {{text}}
+    </div>
+    {{/if}}
+
+    {{#if _icon}}
+    <div class="nav-link-icon icon {{_icon}}{{#if text}} is-text{{/if}}"></div>
+    {{/if}}
+  </div>
+
+  {{/if}}
+
   {{/each}}
 </div>
