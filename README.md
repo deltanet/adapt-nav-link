@@ -60,7 +60,7 @@ Several elements of **Nav link** have been assigned a label using the [aria-labe
 
 ----------------------------
 **Version number:**  4.0.0  
-**Framework versions supported:**  5+  
+**Framework versions supported:**  5.8+  
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-nav-link/graphs/contributors)  
 **Accessibility support:** Yes  
 **RTL support:** Yes  

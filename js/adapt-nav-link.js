@@ -1,53 +1,46 @@
-define([
-  'core/js/adapt',
-  './navlinkView'
-], function (Adapt, NavlinkView) {
+import Adapt from 'core/js/adapt';
+import NavlinkView from './navlinkView';
 
-  var NavLink = _.extend({
+class NavLink extends Backbone.Controller {
 
-    initialize: function () {
-      this.listenToOnce(Adapt, 'app:dataReady', this.onAppDataReady);
-    },
+  initialize() {
+    this.listenToOnce(Adapt, 'app:dataReady', this.onAppDataReady);
+  }
 
-    onAppDataReady: function () {
-      this.listenTo(Adapt.config, 'change:_activeLanguage', this.onLangChange);
+  onAppDataReady() {
+    this.listenTo(Adapt.config, 'change:_activeLanguage', this.onLangChange);
 
-      this.setupNavlink();
-      this.setupListeners();
-    },
+    this.setupNavlink();
+    this.setupListeners();
+  }
 
-    onLangChange: function () {
-      this.removeListeners();
-      this.listenToOnce(Adapt, 'app:dataReady', this.onAppDataReady);
-    },
+  onLangChange() {
+    this.removeListeners();
+    this.listenToOnce(Adapt, 'app:dataReady', this.onAppDataReady);
+  }
 
-    setupNavlink: function () {
-      this.config = Adapt.course.get('_navLink');
-      this.model = new Backbone.Model(this.config);
-    },
+  setupNavlink() {
+    this.config = Adapt.course.get('_navLink');
+    this.model = new Backbone.Model(this.config);
+  }
 
-    setupListeners: function () {
-      this.listenTo(Adapt, 'articleView:postRender blockView:postRender componentView:postRender', this.renderNavlinkView);
-    },
+  setupListeners() {
+    this.listenTo(Adapt, 'articleView:postRender blockView:postRender componentView:postRender', this.renderNavlinkView);
+  }
 
-    removeListeners: function () {
-      this.stopListening(Adapt, 'articleView:postRender blockView:postRender componentView:postRender', this.renderNavlinkView);
-      this.stopListening(Adapt.config, 'change:_activeLanguage', this.onLangChange);
-    },
+  removeListeners() {
+    this.stopListening(Adapt, 'articleView:postRender blockView:postRender componentView:postRender', this.renderNavlinkView);
+    this.stopListening(Adapt.config, 'change:_activeLanguage', this.onLangChange);
+  }
 
-    renderNavlinkView: function (view) {
-      if (view.model.get('_navLink') && view.model.get('_navLink')._isEnabled) {
-        // Only render view if it DOESN'T already exist - Work around for assessmentResults component
-        if (!$('.' + view.model.get('_id')).find('.navlink').length) {
-          new NavlinkView({model: view.model});
-        }
+  renderNavlinkView(view) {
+    if (view.model.get('_navLink') && view.model.get('_navLink')._isEnabled) {
+      // Only render view if it DOESN'T already exist - Work around for assessmentResults component
+      if (!$('.' + view.model.get('_id')).find('.navlink').length) {
+        new NavlinkView({model: view.model});
       }
     }
+  }
+}
 
-  }, Backbone.Events);
-
-  NavLink.initialize();
-
-  return NavLink;
-
-});
+export default Adapt.navLink = new NavLink();
