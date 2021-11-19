@@ -1,7 +1,32 @@
 <div class="navlink__inner {{_navLink._classes}}">
   {{#each _navLink._items}}
+
+  {{#if _link}}
   <button class="btn-text navlink__btn js-navlink-btn-click"{{#if _ariaLabel}} aria-label="{{_ariaLabel}}"{{/if}} role="link">
-    {{text}}
+    {{#if text}}
+      {{text}}
+    {{/if}}
+
+    {{#if _icon}}
+    <div class="navlink__icon icon {{_icon}}{{#if text}} is-text{{/if}}"></div>
+    {{/if}}
   </button>
+
+  {{else}}
+  <div class="navlink__graphic">
+
+    {{#if text}}
+    <div class="navlink__text">
+      {{text}}
+    </div>
+    {{/if}}
+
+    {{#if _icon}}
+    <div class="navlink__icon icon {{_icon}}{{#if text}} is-text{{/if}}"></div>
+    {{/if}}
+  </div>
+
+  {{/if}}
+
   {{/each}}
 </div>

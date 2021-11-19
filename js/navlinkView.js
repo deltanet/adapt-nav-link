@@ -59,15 +59,15 @@ export default class NavlinkView extends Backbone.View {
 
       switch (this.model.get('_navLink')._location) {
       case 'Bottom of page':
-        this.$el.addClass('fixed');
-        this.$el.on('onscreen', this.onscreen.bind(this));
+        this.$el.addClass('is-fixed');
+        $('.' + this.model.get('_id')).on('onscreen', this.onscreen.bind(this));
         break;
       case 'Below content':
-        $(this.el).addClass('inline');
+        $(this.el).addClass('is-inline');
         break;
       }
     } else {
-      this.$el.addClass('inline');
+      this.$el.addClass('is-inline');
     }
 
     this.elementID = this.model.get('_id');
@@ -108,10 +108,16 @@ export default class NavlinkView extends Backbone.View {
   }
 
   onscreen(event, measurements) {
-    // This is to fix common miscalculation issues
-    const isJustOffscreen = (measurements.bottom > -100);
+    const visible = this.model.get('_isVisible');
+    const isOnscreen = measurements.onscreen;
 
-    if (measurements.onscreen || isJustOffscreen) {
+    const elementTopOnscreenY = measurements.percentFromTop < 40 && measurements.percentFromTop > 0;
+    const elementBottomOnscreenY = measurements.percentFromTop < 40 && measurements.percentFromBottom < 40;
+
+    const isOnscreenY = elementTopOnscreenY || elementBottomOnscreenY;
+
+    // Check for element coming on screen
+    if (visible && isOnscreen && isOnscreenY) {
       this.setButtonVisible(true);
     } else {
       this.setButtonVisible(false);
@@ -120,9 +126,9 @@ export default class NavlinkView extends Backbone.View {
 
   setButtonVisible(isVisible) {
     if (isVisible) {
-      this.$('.navlink__btn').removeClass('display-none');
+      this.$('.navlink__inner').removeClass('u-display-none');
     } else {
-      this.$('.navlink__btn').addClass('display-none');
+      this.$('.navlink__inner').addClass('u-display-none');
     }
   }
 
@@ -136,7 +142,7 @@ export default class NavlinkView extends Backbone.View {
 
     // Set visited state
     if (!currentItem.visited) {
-      $item.addClass('visited');
+      $item.addClass('is-visited');
       currentItem.visited = true;
     }
 
@@ -220,7 +226,7 @@ export default class NavlinkView extends Backbone.View {
       const $item = this.$(items[i]);
 
       if (item.visited){
-        $item.addClass('visited');
+        $item.addClass('is-visited');
       }
     }
   }
@@ -267,6 +273,6 @@ export default class NavlinkView extends Backbone.View {
   }
 
   removeOnscreen() {
-    this.$el.off('onscreen');
+    $('.' + this.model.get('_id')).off('onscreen');
   }
 }

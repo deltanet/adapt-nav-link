@@ -122,19 +122,27 @@
                       },
                       "text": {
                         "type":"string",
-                        "required": true,
+                        "required": false,
                         "default": "",
                         "title": "Button Text",
                         "inputType": "Text",
-                        "validators": ["required"],
+                        "validators": [],
                         "translatable": true
+                      },
+                      "_icon": {
+                        "type":"string",
+                        "required": false,
+                        "default": "",
+                        "title": "Button Icon",
+                        "inputType": "Text",
+                        "validators": []
                       },
                       "_link": {
                         "type": "string",
-                        "required": true,
+                        "required": false,
                         "default": "Parent page",
                         "title": "Destination",
-                        "inputType": {"type": "Select", "options": ["Parent page", "Previous page", "Next page", "Next article", "Navigation ID", "Custom"]},
+                        "inputType": {"type": "Select", "options": ["", "Parent page", "Previous page", "Next page", "Next article", "Navigation ID", "Custom"]},
                         "validators": [],
                         "help": "Set where the button should link to."
                       },
@@ -250,19 +258,27 @@
                       },
                       "text": {
                         "type":"string",
-                        "required": true,
+                        "required": false,
                         "default": "",
                         "title": "Button Text",
                         "inputType": "Text",
-                        "validators": ["required"],
+                        "validators": [],
                         "translatable": true
+                      },
+                      "_icon": {
+                        "type":"string",
+                        "required": false,
+                        "default": "",
+                        "title": "Button Icon",
+                        "inputType": "Text",
+                        "validators": []
                       },
                       "_link": {
                         "type": "string",
-                        "required": true,
+                        "required": false,
                         "default": "Parent page",
                         "title": "Destination",
-                        "inputType": {"type": "Select", "options": ["Parent page", "Previous page", "Next page", "Next block", "Navigation ID", "Custom"]},
+                        "inputType": {"type": "Select", "options": ["", "Parent page", "Previous page", "Next page", "Next block", "Navigation ID", "Custom"]},
                         "validators": [],
                         "help": "Set where the button should link to."
                       },
@@ -378,19 +394,27 @@
                       },
                       "text": {
                         "type":"string",
-                        "required": true,
+                        "required": false,
                         "default": "",
                         "title": "Button Text",
                         "inputType": "Text",
-                        "validators": ["required"],
+                        "validators": [],
                         "translatable": true
+                      },
+                      "_icon": {
+                        "type":"string",
+                        "required": false,
+                        "default": "",
+                        "title": "Button Icon",
+                        "inputType": "Text",
+                        "validators": []
                       },
                       "_link": {
                         "type": "string",
-                        "required": true,
+                        "required": false,
                         "default": "Parent page",
                         "title": "Destination",
-                        "inputType": {"type": "Select", "options": ["Parent page", "Previous page", "Next page", "Next component", "Navigation ID", "Custom"]},
+                        "inputType": {"type": "Select", "options": ["", "Parent page", "Previous page", "Next page", "Next component", "Navigation ID", "Custom"]},
                         "validators": [],
                         "help": "Set where the button should link to."
                       },
