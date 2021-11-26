@@ -210,12 +210,12 @@ export default class NavlinkView extends Backbone.View {
     for (let i = 0; i < this.contentObjects.length; i++) {
       if (this.contentObjects.models[i].has('_navLink') && this.contentObjects.models[i].get('_navLink')._isEnabled) {
         if (id == this.contentObjects.models[i].get('_navLink')._navigationID) {
-          const link = this.contentObjects.models[i].get('_id');
+          this.link = this.contentObjects.models[i].get('_id');
         }
       }
     }
 
-    this.navigateToElement(link);
+    this.navigateToElement(this.link);
   }
 
   setVisitedStates() {
