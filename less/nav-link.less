@@ -4,11 +4,20 @@
 	}
 
 	&.is-fixed {
-		display: block;
-		position: fixed;
+		position: absolute;
+		z-index: 80;
 		bottom: 0;
-		left: 50%;
-		transform: translateX(-50%);
+		left: 0;
+		right: 0;
+
+		.navlink__inner {
+			display: block;
+			position: fixed;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			margin-top: 0;
+		}
 	}
 
 	&__graphic {
