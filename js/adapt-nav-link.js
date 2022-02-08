@@ -43,4 +43,4 @@ class NavLink extends Backbone.Controller {
   }
 }
 
-export default Adapt.navLink = new NavLink();
+export default new NavLink();
