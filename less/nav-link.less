@@ -60,3 +60,16 @@
 .extensions {
 	text-align: center;
 }
+
+.menu,
+.page {
+	&.is-navlink-enabled {
+		.navlink {
+			&.is-inline {
+				.navlink__btn {
+					margin-bottom: @btn-margin;
+				}
+			}
+		}
+	}
+}

@@ -2,7 +2,23 @@
 
 "_navLink": {
   "_isEnabled": true,
-  "_navigationID": ""
+  "_navigationID": "",
+  "_classes": "",
+  "_location": "Bottom of page", // "Below content" "Bottom of page"
+  "_items": [
+    {
+      "_requireElementCompleted": false,
+      "_requireCourseCompleted": false,
+      "_requireAssessmentPassed": false,
+      "_hideAfterClick": false,
+      "text": "Menu",
+      "_icon": "",
+      "_link": "", // "Parent page" "Previous page" "Next page" "Navigation ID" "Custom"
+      "_navigationID": "",
+      "link": "",
+      "_ariaLabel": "Menu button. Select here to go back to the menu."
+    }
+  ]
 },
 
 // Add to Article, Block or component JSON

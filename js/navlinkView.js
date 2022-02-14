@@ -36,6 +36,8 @@ export default class NavlinkView extends Backbone.View {
 
     $(this.el).html(template(data)).prependTo('.' + this.model.get('_id') + '>.' +this.model.get('_type')+'__inner' + ' > .extensions');
 
+    $('.' + this.model.get('_id')).addClass('is-navlink-enabled');
+
     this.completionCriteriaMet = false;
     this.assessmentCriteriaMet = false;
 

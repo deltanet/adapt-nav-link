@@ -25,11 +25,11 @@ class NavLink extends Backbone.Controller {
   }
 
   setupListeners() {
-    this.listenTo(Adapt, 'articleView:postRender blockView:postRender componentView:postRender', this.renderNavlinkView);
+    this.listenTo(Adapt, 'contentObjectView:postRender articleView:postRender blockView:postRender componentView:postRender', this.renderNavlinkView);
   }
 
   removeListeners() {
-    this.stopListening(Adapt, 'articleView:postRender blockView:postRender componentView:postRender', this.renderNavlinkView);
+    this.stopListening(Adapt, 'contentObjectView:postRender articleView:postRender blockView:postRender componentView:postRender', this.renderNavlinkView);
     this.stopListening(Adapt.config, 'change:_activeLanguage', this.onLangChange);
   }
 

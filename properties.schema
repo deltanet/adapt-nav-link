@@ -39,6 +39,121 @@
                   "inputType": "Text",
                   "validators": [],
                   "help": "Defines a unique name for the page which Nav link items can reference."
+                },
+                "_classes": {
+                  "type": "string",
+                  "required": true,
+                  "title": "Classes",
+                  "inputType": "Text",
+                  "validators": []
+                },
+                "_location": {
+                  "type": "string",
+                  "required": false,
+                  "default": "Below content",
+                  "title": "Button Location",
+                  "inputType": {"type": "Select", "options": ["Below content", "Bottom of page"]},
+                  "validators": [],
+                  "help": "Set where the button should be located."
+                },
+                "_items": {
+                  "type":"array",
+                  "required": true,
+                  "title": "Items",
+                  "items": {
+                    "type":"object",
+                    "required": true,
+                    "properties": {
+                      "_requireElementCompleted": {
+                        "type": "boolean",
+                        "required": false,
+                        "default": false,
+                        "title": "Page/Menu completion required",
+                        "inputType": "Checkbox",
+                        "validators": [],
+                        "help": "If enabled, the button will show if the current Page/Menu is complete."
+                      },
+                      "_requireCourseCompleted": {
+                        "type":"boolean",
+                        "required": false,
+                        "default": false,
+                        "title":"Course completion required",
+                        "inputType": "Checkbox",
+                        "validators": [],
+                        "help": "If enabled, the button will show when the user completes all the components in the course."
+                      },
+                      "_requireAssessmentPassed": {
+                        "type":"boolean",
+                        "required": false,
+                        "default": false,
+                        "title":"Assessment pass required",
+                        "inputType": "Checkbox",
+                        "validators": [],
+                        "help": "If enabled, the button will show when the user has passsed the course assessment."
+                      },
+                      "_hideAfterClick": {
+                        "type":"boolean",
+                        "required": true,
+                        "default": false,
+                        "title": "Hide button after clicking",
+                        "inputType": "Checkbox",
+                        "validators": []
+                      },
+                      "text": {
+                        "type":"string",
+                        "required": false,
+                        "default": "",
+                        "title": "Button Text",
+                        "inputType": "Text",
+                        "validators": [],
+                        "translatable": true
+                      },
+                      "_icon": {
+                        "type":"string",
+                        "required": false,
+                        "default": "",
+                        "title": "Button Icon",
+                        "inputType": "Text",
+                        "validators": []
+                      },
+                      "_link": {
+                        "type": "string",
+                        "required": false,
+                        "default": "Parent page",
+                        "title": "Destination",
+                        "inputType": {"type": "Select", "options": ["", "Parent page", "Previous page", "Next page", "Navigation ID", "Custom"]},
+                        "validators": [],
+                        "help": "Set where the button should link to."
+                      },
+                      "_navigationID": {
+                        "type": "string",
+                        "required": false,
+                        "default": "",
+                        "title": "Navigation ID",
+                        "inputType": "Text",
+                        "validators": [],
+                        "help": "If 'Navigation ID' is selected above, define the name of the page you want to link to."
+                      },
+                      "link": {
+                        "type": "string",
+                        "required": false,
+                        "default": "",
+                        "title": "Custom ID",
+                        "inputType": "Text",
+                        "validators": [],
+                        "help": "If 'Custom' is selected above, paste the ID of the element you want to link to. WARNING! This link will be broken if the course is copied or imported in the Authoring Tool."
+                      },
+                      "_ariaLabel": {
+                        "type":"string",
+                        "required": false,
+                        "default": "",
+                        "title": "Aria Label",
+                        "inputType": "Text",
+                        "validators": [],
+                        "translatable": true
+                      }
+                    }
+                  }
                 }
               }
             }

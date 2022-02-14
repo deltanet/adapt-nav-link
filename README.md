@@ -20,11 +20,37 @@ The attributes listed below are properly formatted as JSON in [*example.json*](h
 
 **Page / menu**
 
-The Nav link attribute group at page and menu level contains values for **_isEnabled**, and **_navigationID**.
+The Nav link attribute group at page and menu level contains values for **_isEnabled**, **_navigationID**, **_classes**, **_location**, and **_items**.
 
 >**_isEnabled** (boolean):  Turns on and off the **Nav link** extension. Can be set to disable **Nav link** when not required.
 
 >**_navigationID** (string):  This defines a name for the page which a nav link button can link to.
+
+>**_classes** (string):  Defines a css class that is included in the theme.
+
+>>**_location** (string):  Defines the position of the button. Options are `"Below content"`, and `"Bottom of page"`. The default is `"Below content"`.
+
+>**_items** (array): This `_items` attributes group stores the properties for a button. It contains values for **_requireElementCompleted**, **_requireCourseCompleted**, **_requireAssessmentPassed**, **_hideAfterClick**, **text**, **_icon**, **_link**, **link**, and **_ariaLabel**.  
+
+>>**_requireElementCompleted** (boolean):  If enabled, the button will be hidden until the Page or Menu the **Nav link** extension is enabled on is complete.  
+
+>>**_requireCourseCompleted** (boolean):  If enabled, the button will be hidden until the course is completed.  
+
+>>**_requireAssessmentPassed** (boolean):  If enabled, the button will be hidden until the assessment is passed.  
+
+>>**_hideAfterClick** (boolean):  If enabled, the button will be hidden when the user selects it.  
+
+>>**text** (string): Defines the title on the button.  
+
+>>**_icon** (string): Class name for the icon. The class should be defined in the theme.  
+
+>>**_link** (string):  Defines the destination of the button link. Options are `"Parent page"`, `"Next page"`, `"Previous page"`, `"Navigation ID"`, and `"Custom"`. The default is `"Parent page"`.
+
+>>**_navigationID** (string):  If `"Navigation ID"` is set then this defines which page the button links to.
+
+>>**link** (string):  If `"Custom"` is set then this defines the ID of the element the button links to.
+
+>>**_ariaLabel** (string):  This text becomes the button’s `Aria label` attribute.  
 
 **Article / Block / Component**
 
@@ -63,7 +89,7 @@ Several elements of **Nav link** have been assigned a label using the [aria-labe
 <div float align=right><a href="#top">Back to Top</a></div>
 
 ----------------------------
-**Version number:**  4.1.2  
+**Version number:**  4.2.0  
 **Framework versions supported:**  5.8+  
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-nav-link/graphs/contributors)  
 **Accessibility support:** Yes  
