@@ -1,4 +1,6 @@
 import Adapt from 'core/js/adapt';
+import location from 'core/js/location';
+import router from 'core/js/router';
 
 export default class NavlinkView extends Backbone.View {
 
@@ -73,7 +75,7 @@ export default class NavlinkView extends Backbone.View {
     }
 
     this.elementID = this.model.get('_id');
-    this.location = Adapt.location._currentId;
+    this.location = location._currentId;
     this.objectNum = 0;
     this.subObjectNum = 0;
     this.elementNum = 0;
@@ -160,7 +162,7 @@ export default class NavlinkView extends Backbone.View {
     } else {
       switch (link) {
       case 'Parent page':
-        Adapt.router.navigateToParent();
+        router.navigateToParent();
         break;
       case 'Next page':
         this.navigateToElement(this.subPageId[this.subObjectNum + 1]);
