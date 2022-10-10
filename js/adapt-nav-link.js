@@ -35,6 +35,7 @@ class NavLink extends Backbone.Controller {
 
   renderNavlinkView(view) {
     if (view.model.get('_navLink') && view.model.get('_navLink')._isEnabled) {
+      if (view.model.get('_navLink')._items.length == 0) return;
       // Only render view if it DOESN'T already exist - Work around for assessmentResults component
       if (!$('.' + view.model.get('_id')).find('.navlink').length) {
         new NavlinkView({model: view.model});
